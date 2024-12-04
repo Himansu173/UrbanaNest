@@ -1,4 +1,4 @@
-<div class="container-fluid p-md-3 p-2" style="background-color:#f5f5f5; min-height:90vh;">
+<div class="p-md-2 p-3 z-3" style="background-color:#f5f5f5; max-width:70vw;">
     <div class="row">
         <div class="col-6">
             <h5>Filters</h5>
@@ -18,17 +18,14 @@
         <div class="py-2 d-flex align-items-center flex-nowrap fw-medium">
             Price Range
         </div>
-        <div class="row" id="priceRangeDiv">
-            <div class="col-xl-5 col-12">
+        <div class="row g-1" id="priceRangeDiv">
+            <div class="col-md-6 col-12">
                 <div class="input-group mt-1">
                     <span class="input-group-text px-1">Min</span>
                     <input type="text" class="form-control px-1" value="0">
                 </div>
             </div>
-            <div class="col-xl-2 col-12 d-flex align-items-center justify-content-center">
-                <span>To</span>
-            </div>
-            <div class="col-xl-5 col-12">
+            <div class="col-md-6 col-12">
                 <div class="input-group mt-1">
                     <span class="input-group-text px-1">Max</span>
                     <input type="text" class="form-control px-1" value="50000">
