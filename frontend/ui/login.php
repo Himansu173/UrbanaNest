@@ -9,9 +9,9 @@
 <body>
     <!-- button for login button trigger -->
     <div class="container mt-5 text-center">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
             Login
-        </button>
+        </a>
     </div>
    <!-- total form  -->
   <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -31,14 +31,19 @@
                 <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
                 <label for="password">Password</label>
             </div>
-            <div class="mb-2 text-end">
-                <input type="submit" class="btn btn-primary px-4 me-2 shadow" name="login" id="login" value="Login">
+            <div class="d-flex justify-content-between"> 
+              <div class="mb-2">
+                <label for="password">Don't have an account?</label>
+                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#signupModal">
+                  Sign Up
+                </a>
+              </div>
+              <div class="mb-2 text-end">
+                  <input type="submit" class="btn btn-primary px-4 me-2 shadow" name="login" id="login" value="Login">
+              </div>
             </div>
           </form>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div> -->
       </div>
     </div>
   </div>
