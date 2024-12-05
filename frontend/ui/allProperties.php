@@ -93,7 +93,7 @@
                             <div class="card-body px-2 px-md-0 pe-md-1 p-0">
                                 <p class="card-text fw-semibold fs-sm-5 fs-6 m-0 p-0 text-primary-emphasis">Property
                                     Name</p>
-                                <p class="card-text mb-1 fs-6"><img src="../images/bed.png" alt="img" width="20rem"> 2
+                                <p class="card-text mb-1 fs-6"><img src="../assets/img/bed.png" alt="img" width="20rem"> 2
                                     BHK Flat for Sale in Sundarpada, Bhubaneswar</p>
                                 <p class="card-text mb-1 fs-5 text-primary-emphasis m-0 fw-semibold">&#8377; 5.87L</p>
                                 <div class="row">
