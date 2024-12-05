@@ -264,6 +264,7 @@
         </div>
     </form>
 </div>
+<?php require_once "footer.php" ?>
 <?php
 
 if(isset($_POST['submit'])){
