@@ -18,37 +18,51 @@
             position: absolute;
             left: -100%;
         }
+        .property-body{
+            margin-bottom:-54px;
+            z-index:1;
+            transition:0.3s ease-in-out;
+        }
+        .property-card:hover .property-body{
+            margin-bottom:0px;
+            margin-top:-54px;
+        }
+        .property-card{
+            transition:0.3s ease-in-out;
+            width:16rem;
+        }
+        .property-card:hover{
+            box-shadow: 0px 4px 10px lightgray;
+        }
+        @media only screen and (max-width: 768px) {
+            .property-card {
+                width:100%;
+                box-shadow: 0px 4px 10px lightgray;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container-fluid my-2 d-flex justify-content-center">
-        <div class="hidden d-md-none row gx-0">
-            <div class="col-8" id="smallScreenFilterConainer">
-                <?php
-                    require "sideFilter.php";
-                    // $width = "<script>document.write(screen.width); </script>";
-                    // if($width > 768){
-                    //     require_once "sideFilter.php";
-                    // }
-                ?>
-            </div>
-            <div class="col-4" onclick="toggleFilters()"></div>
-        </div>
-        <div class="row my-1" style="max-width:1600px">
+        <div class="row my-1 g-3" style="max-width:1600px">
             <div class="row p-0 m-0">
                 <div class="col-6 d-md-none d-block">
-                    <span class="py-1 px-4 btn border rounded fw-semibold shadow-sm" onclick="toggleFilters()"
+                    <span class="px-4 btn border rounded fw-semibold shadow-sm" onclick="toggleFilters()"
                         style="cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
-                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z" />
-                            </svg> Filter</span>
+                            <path
+                                d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z" />
+                        </svg> Filter</span>
                 </div>
                 <div class="col-6 d-md-none text-end">
                     <div class="btn-group">
-                        <button type="button" class="btn dropdown-toggle py-1 px-2 border rounded fw-semibold shadow-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
-                                <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                        <button type="button" class="btn dropdown-toggle px-2 border rounded fw-semibold shadow-sm"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-filter" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
                             </svg> Sort By
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
@@ -60,16 +74,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-md-block d-none gx-5" id="largeScreenFilterConainer">
-                <?php
-                require "sideFilter.php";
-                    // $width = "<script>document.write(screen.width); </script>";
-                    // if($width <= 768){
-                        // require_once "sideFilter.php";
-                    // }
+            <div class="col-md-2 g-0 d-flex" id="FilterConainer">
+                <?php 
+                    require_once "sideFilter.php";
                 ?>
+                <div class="w-100 d-md-none h-100 position-absolute" onclick="toggleFilters()"></div>
             </div>
-            <div class="col-md-9 py-2">
+            <div class="col-md-10">
                 <div class="d-md-flex d-none mb-2">
                     <span class="fw-bold mx-2">Sort By</span>
                     <div class="sortBySelect">
@@ -93,56 +104,19 @@
                             <div class="card-body px-2 px-md-0 pe-md-1 p-0">
                                 <p class="card-text fw-semibold fs-sm-5 fs-6 m-0 p-0 text-primary-emphasis">Property
                                     Name</p>
-                                <p class="card-text mb-1 fs-6"><img src="../assets/img/bed.png" alt="img" width="20rem"> 2
+                                <p class="card-text mb-1 fs-6"><img src="../images/bed.png" alt="img" width="20rem"> 2
                                     BHK Flat for Sale in Sundarpada, Bhubaneswar</p>
                                 <p class="card-text mb-1 fs-5 text-primary-emphasis m-0 fw-semibold">&#8377; 5.87L</p>
                                 <div class="row">
                                     <p class="col-6 mb-0 fw-medium">8087 Sq.Ft</p>
-                                    <p class="col-6 mb-0 fw-medium">Semi-Furnished</p>
+                                    <p class="col-6 mb-0 fw-medium text-end">Semi-Furnished</p>
                                 </div>
-                                <div class="row">
+                                <div class="row g-0">
                                     <p class="col-6 mb-0" style="font-size:0.9rem">Build-up Area</p>
-                                    <p class="col-6 mb-0" style="font-size:0.9rem">Furnishing Status</p>
-                                </div>
-                                <div class="mt-1">
-                                    <p class="card-text lh-sm" style="font-size:0.9rem">
-                                        <?php
-                                $description="Krishna Enclave - 2 BHK Flats for Sale in Sundarpada, Bhubaneswar. Searching for the perfect home for your family in a prime location.";
-                                echo strlen($description)>180?substr($description,0,180)."...":$description ?>
-                                    </p>
+                                    <p class="col-6 mb-0 text-end" style="font-size:0.9rem">Furnishing Status</p>
                                 </div>
                             </div>
-                        </div>
                     </div>
-                    <div class="d-flex my-1 py-1 px-md-4 px-1" style="background-color:#f5f5f5">
-                        <div class="d-flex align-items-center w-50 overflow-hidden">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s"
-                                alt="user" height="30px" width="30px" class="border rounded-circle">
-                            <span class="ms-md-2 ms-1 fw-medium" style="cursor:pointer;">Jeet Chaudhary</span>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-end w-50 overflow-hidden fw-medium">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-telephone" viewBox="0 0 16 16">
-                                <path
-                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                            </svg>
-                            <span class="ms-2">8126578173</span>
-                        </div>
-                    </div>
-                    <div class="row pt-1 pb-2 px-md-4 px-1" style="cursor:pointer" id="simillarProperty">
-                        <div class="col-10 d-flex align-items-center overflow-hidden">
-                            <span>Similar listings by Jeet Chaudhary</span>
-                        </div>
-                        <div class="col-2 d-flex align-items-center justify-content-end overflow-hidden" id="arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="container-fluid overflow-y-auto" id="simillarPropertyContainer"
-                        style="max-height:300px"></div>
                 </div>
             </div>
         </div>
@@ -150,54 +124,56 @@
     <script src="../../jQuery/jquery-3.7.1.min.js"></script>
     <script src="../../bootstrap/bootstrap.bundle.min.js"></script>
     <script>
-        // if(screen.width<768){
-        //     $("#smallScreenFilterConainer").html(``);
-        //     $("#largeScreenFilterConainer").html('');
-        // }else{
-        //     $("#smallScreenFilterConainer").html('');
-        // }
-        $("#simillarPropertyContainer").hide();
-        simillarPropertyShow = false;
-        for (let i = 0; i < 10; i++) {
-            $("#simillarPropertyContainer").append(`
-            <div class="row my-1 px-md-5 px-1" onMouseOver="this.style.backgroundColor='#f5f5f5'" onMouseOut="this.style.backgroundColor=''" style="cursor:pointer;">
-                <div class="col-md-2 col-3">
-                    <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyaminmellish-186077.jpg&fm=jpg" alt="img" width="80px" class="rounded">
-                </div>
-                <div class="col-md-4 col-sm-5 col-6 d-flex align-items-center flex-wrap overflow-hidden">
-                    <div class="d-flex align-items-center w-100 overflow-hidden" style="font-size:0.9rem">
-                        4 BHK Appartment 
-                    </div>
-                    <div class="d-flex align-items-center w-100 overflow-hidden" style="font-size:0.9rem">
-                        Bhubaneswar
-                    </div>
-                </div>
-                <div class="col-sm-2 d-sm-flex align-items-center overflow-hidden d-none" style="font-size:0.9rem">
-                    8976 Sq.Ft
-                </div>
-                <div class="col-md-2 d-md-flex align-items-center overflow-hidden d-none" style="font-size:0.9rem">
-                    Furnished
-                </div>
-                <div class="col-sm-2 col-3 d-flex align-items-center overflow-hidden" style="font-size:0.9rem">
-                &#8377; 1.07L
-                </div>
-            </div>
-        `);
+        if(screen.width<768){
+            $("#FilterConainer").removeClass("col");
+            $("#FilterConainer").addClass("hidden");
         }
-        $("#simillarProperty").click(() => {
-            if (simillarPropertyShow) {
-                $("#arrow").html(`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>`);
-                simillarPropertyShow = false;
-                $("#simillarPropertyContainer").slideUp();
-            } else {
-                $("#arrow").html(`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/></svg>`)
-                simillarPropertyShow = true;
-                $("#simillarPropertyContainer").slideDown();
-            }
-        })
+        for (let i = 0; i < 20; i++) {
+            $("#propertyCardContainer").append(`
+                <div class="card property-card border-0 overflow-hidden mb-4" style="cursor:pointer;">
+                    <div id="propertyImg" class="carousel slide w-100">
+                        <div class="carousel-inner h-100 w-100">
+                            <div class="carousel-item active">
+                                <img src="https://imgs.search.brave.com/r3lzftQBeeNNKGchoyt7bQCTUmdgWJrxa772Vv6gOOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzM3LzU0LzIz/LzM2MF9GXzQzNzU0/MjM2NF9yVUtSVURs/T1EyWm1WcnNpak5G/VWZyaHhaTzdqeU9G/Zy5qcGc" class="card-img" alt="ax" height="200px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://imgs.search.brave.com/BURrOYrppSL3YBxY0ZIfp-r45A0AOzmKwaPYbPCQFD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8w/MS8wNy8xNy80OC9p/bnRlcmlvci0xOTYx/MDcwXzY0MC5qcGc" class="card-img" alt="ax" height="200px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://imgs.search.brave.com/MRIsvkNXzCHqfkoEJvWn5aLQ7Ozr-UPjlpw5aev76A0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzU3LzY4Lzgx/LzM2MF9GXzU3Njg4/MTc1X1BlSXNEOHpz/a013b2JiTTBOSVZN/SUlJMG5SZWdXc2Fs/LmpwZw" class="card-img" alt="ax" height="200px">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#propertyImg"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#propertyImg"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-secondary rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body p-2 property-body bg-white">
+                        <h5 class="card-title text-primary-emphasis">Rajinder Nagar</h5>
+                        <p class="card-text mb-1 fs-6">
+                            <img src="../images/bed.png" alt="img" width="20rem">
+                            <span class="ms-1">3 BHK Flat for Sale in Sundarpada, Bhubaneswar</span>
+                        </p>
+                        <p class="card-text mb-1 fs-4 text-primary-emphasis m-0 fw-semibold">&#8377; 5.87L</p>
+                        <div class="row g-0">
+                            <p class="col-6 mb-0 fw-medium">8087 Sq.Ft</p>
+                            <p class="col-6 mb-0 fw-medium text-end">Semi-Furnished</p>
+                        </div>
+                        <div class="row g-0">
+                            <p class="col-6 mb-0" style="font-size:0.9rem">Build-up Area</p>
+                            <p class="col-6 mb-0 text-end" style="font-size:0.9rem">Furnishing Status</p>
+                        </div>
+                    </div>
+                </div>
+            `);            
+        }
         function highlightSortBy(ele) {
-            console.log("caa");
-
             $(".sortByElement").removeClass("highlightEle");
             $(ele).addClass("highlightEle");
         }
