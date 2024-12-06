@@ -8,8 +8,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="../assets/img/logo.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../assets/img/logo2.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -27,6 +26,8 @@
 
   <!-- Main CSS File -->
   <link href="../css/main.css" rel="stylesheet">
+  <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  
 </head>
 
 <body class="index-page">
@@ -35,7 +36,7 @@
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.php" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="assets/img/logo.png" alt="" class="rounded">
+        <img src="../assets/img/logo.png" alt="" class="rounded">
         <h1 class="sitename">UrbanNest</h1><span>.</span>
       </a>
 

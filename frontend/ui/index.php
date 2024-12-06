@@ -6,8 +6,19 @@ require_once "navbar.php"
 
   <!-- Hero Section -->
   <section id="hero" class="hero section dark-background">
-
-    <img src="../assets/img/hero-bg3.jpg" alt="" data-aos="fade-in">
+    <img 
+      id="hero-img" 
+      src="../assets/img/hero-bg2.jpg" 
+      alt="" 
+      style="
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        position: absolute; 
+        transition: opacity 1s ease-in-out; 
+        opacity: 1;
+      "
+    >
     <div class="container">
       <div class="row">
         <div class="col-lg-10">
@@ -16,7 +27,7 @@ require_once "navbar.php"
         </div>
         <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
           <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="sign-up-form">
+            <div class="location-form">
               <input type="text" name="location" placeholder="Search by location">
               <input type="submit" value="Search">
             </div>
@@ -26,8 +37,29 @@ require_once "navbar.php"
         </div>
       </div>
     </div>
+  </section>
+  <script>
+    const images = [
+      '../assets/img/hero-bg1.jpg',
+      '../assets/img/hero-bg2.jpg',
+      '../assets/img/hero-bg3.jpg'
+    ];
 
-  </section><!-- /Hero Section -->
+    let currentImageIndex = 0;
+
+    function changeHeroImage() {
+      const heroImg = document.getElementById('hero-img');
+      heroImg.style.opacity = 0;
+      setTimeout(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        heroImg.src = images[currentImageIndex];
+        heroImg.style.opacity = 1;
+      }, 600);
+    }
+
+    // Change the image every 5 secods
+    setInterval(changeHeroImage, 5000);
+  </script><!-- Hero Section -->
 
   <!-- Recent Posts Section -->
   <section id="recent-posts" class="recent-posts section">
@@ -257,7 +289,7 @@ require_once "navbar.php"
 
 <!-- Preloader -->
 <!-- <div id="preloader"></div> -->
-<script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></scrip>
 <script src="../assets/vendor/aos/aos.js"></script>
 <script src="../assets/vendor/glightbox/glightbox.min.js"></script>
 <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
