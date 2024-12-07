@@ -199,7 +199,7 @@
          <div class="shadow rounded p-1" id="map">
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.7806764633715!2d85.8037610752383!3d20.350677281134352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9288172f3a98c7a4!2sSilicon%20University!5e0!3m2!1sen!2sin!4v1733336564038!5m2!1sen!2sin" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
          </div>
-         <div class="card shadow mt-3 pb-3" id="simillarPropertyContainer">
+         <div class="card shadow mt-3 pb-3 border-0" id="simillarPropertyContainer">
             <div class="fs-4 fw-semibold mx-2 p-2 border-bottom border-3">Simillar Properties</div>
          </div>
       </div>
@@ -210,7 +210,7 @@
 <script>
    for(let i=0;i<6;i++){
          $("#simillarPropertyContainer").append(`
-            <div class="row mt-3 g-0 px-2" onMouseOver="this.style.backgroundColor='#f5f5f5'" onMouseOut="this.style.backgroundColor=''" style="cursor:pointer;">
+            <div class="row mt-3 g-0 px-2 w-100 d-flex justify-content-between" onMouseOver="this.style.backgroundColor='#f5f5f5'" onMouseOut="this.style.backgroundColor=''" style="cursor:pointer;">
                <div class="col-md-2 col-3">
                      <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyaminmellish-186077.jpg&fm=jpg" alt="img" width="70px" class="rounded">
                </div>
@@ -222,13 +222,13 @@
                         Bhubaneswar
                      </div>
                </div>
-               <div class="col-sm-2 d-sm-flex align-items-center overflow-hidden d-none" style="font-size:0.8rem">
+               <div class="col-xl-2 d-xl-flex align-items-center justify-content-center overflow-hidden d-none" style="font-size:0.8rem">
                      8976 Sq.Ft
                </div>
-               <div class="col-md-2 d-md-flex align-items-center overflow-hidden d-none" style="font-size:0.8rem">
+               <div class="col-xl-2 d-xl-flex align-items-center justify-content-center overflow-hidden d-none" style="font-size:0.8rem">
                      Furnished
                </div>
-               <div class="col-sm-2 col-3 d-flex align-items-center overflow-hidden" style="font-size:0.8rem">
+               <div class="col-2 d-flex align-items-center justify-content-center overflow-hidden" style="font-size:0.8rem">
                &#8377; 1.07L
                </div>
             </div>
