@@ -8,7 +8,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="../assets/img/logo2.png" rel="icon">
+  <link href="../assets/img/favicon.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -30,27 +30,24 @@
   
 </head>
 
-<body class="index-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+<body class="index-page">  
+  <div class="container-fluid position-relative d-flex align-items-center position-sticky sticky-top justify-content-between bg-white shadow-sm">
+    <a href="index.php" class="logo d-flex align-items-center me-xl-0">
+      <!-- <img src="../assets/img/logo.png" alt="LOGO" class="rounded" height="35px"> -->
+       <div class="p-1 bg-black text-white rounded fw-bold">UN</div>
+      <h4 class="fw-semibold text-black mb-0 ms-1">UrbanNest</h4>
+    </a>
 
-      <a href="index.php" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="../assets/img/logo.png" alt="" class="rounded">
-        <h1 class="sitename">UrbanNest</h1><span>.</span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.php#hero" class="active">Home</a></li>
-          <li><a href="#recent-posts" class="active">Recent Post</a></li>
-          <li><a href="#contact" class="active">Contact</a></li>          
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-      <?php
-        require_once "login.php"
-      ?>
-      <a class="btn-getstarted me-2 text-decoration-none" data-bs-toggle="modal"  data-bs-target="#loginModal">Log In</a>
-    </div>
-  </header>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="./index.php#hero" class="active">Home</a></li>
+        <li><a href="./index.php#recent-posts" class="active">Recent Post</a></li>
+        <li><a href="./index.php#contact" class="active">Contact</a></li>          
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+    <?php
+      require_once "login.php"
+    ?>
+    <a class="btn btn-dark btn-sm" data-bs-toggle="modal"  data-bs-target="#loginModal">Log In</a>
+  </div>
