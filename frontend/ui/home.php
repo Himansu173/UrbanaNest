@@ -73,111 +73,129 @@ require_once "navbar.php"
 
     <div class="container">
 
-      <div class="row gy-3">
+      <div class="row g-5">
 
         <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-inner">
             <!-- First slide -->
             <div class="carousel-item active">
-              <div class="row">
+              <div class="row mx-auto">
+                <!-- First Card -->
                 <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
                   <article>
                     <div class="post-img">
-                      <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100">
+                      <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
                     </div>
                     <h2 class="title">
-                      <div>
-                        <a href="blog-details.html">4BHK</a>
+                      <div class="name">
+                        <a>3BHK - Sunrise Apartment</a>
                       </div>
-                      <div class="rating">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
                       </div>
                     </h2>
-                    <p class="post-category">&#x20B9;43,00,000 (2140 Sqft)</p>
-                    <p class="post-category">Bani Bihar, Bhubaneswar</p>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
                     <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
-                <!-- End post list item -->
-                
-                <!-- Second post item -->
+                <!-- Second Card -->
                 <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
                   <article>
                     <div class="post-img">
-                      <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100">
+                      <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
                     </div>
                     <h2 class="title">
-                      <div>
-                        <a href="blog-details.html">2BHK</a>
+                      <div class="name">
+                        <a>2BHK - Green Residency</a>
                       </div>
-                      <div class="rating">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
                       </div>
                     </h2>
-                    <p class="post-category">&#x20B9;20,00,000 (1480 Sqft)</p>
-                    <p class="post-category">Badambadi, Cuttack</p>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
                     <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
-                <!-- End post list item -->
-                <!-- Third post item -->
+                <!-- Third Card -->
                 <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
                   <article>
                     <div class="post-img">
-                      <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100">
+                      <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
                     </div>
                     <h2 class="title">
-                      <div>
-                        <a href="blog-details.html">2BHK</a>
+                      <div class="name">
+                        <a>Cozy Villa</a>
                       </div>
-                      <div class="rating">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
                       </div>
                     </h2>
-                    <p class="post-category">&#x20B9;20,00,000 (1480 Sqft)</p>
-                    <p class="post-category">Badambadi, Cuttack</p>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
                     <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
-                <!-- End post list item -->
               </div>
             </div>
-            <!-- Second slide -->
+            <!-- Second Slide -->
             <div class="carousel-item">
-              <div class="row">
+              <div class="row mx-auto">
+                <!-- Fourth Card -->
                 <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
                   <article>
                     <div class="post-img">
-                      <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100">
+                      <img src="../assets/img/blog/blog-4.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
                     </div>
                     <h2 class="title">
-                      <div>
-                        <a href="blog-details.html">7BHK</a>
+                      <div class="name">
+                        <a>5BHK - Luxury Estate</a>
                       </div>
-                      <div class="rating">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;1.2Cr (4500 Sqft)</p>
                       </div>
                     </h2>
-                    <p class="post-category">&#x20B9;6,00,000 (5200 Sqft)</p>
-                    <p class="post-category">Jatni, Khorda</p>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Jayadev Vihar, Bhubaneswar</p>
                     <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
-                <!-- End post list item -->
+                <!-- Fifth Card -->
+                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+                  <article>
+                    <div class="post-img">
+                      <img src="../assets/img/blog/blog-5.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+                    </div>
+                    <h2 class="title">
+                      <div class="name">
+                        <a>4BHK - Blossom Residency</a>
+                      </div>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;95.8L (3500 Sqft)</p>
+                      </div>
+                    </h2>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Chandrasekharpur, Bhubaneswar</p>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+                  </article>
+                </div>
+                <!-- Sixth Card -->
+                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+                  <article>
+                    <div class="post-img">
+                      <img src="../assets/img/blog/blog-6.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+                    </div>
+                    <h2 class="title">
+                      <div class="name">
+                        <a>3BHK - Maple Heights</a>
+                      </div>
+                      <div class="price">
+                        <p class="post-category">&#x20B9;55.3L (2400 Sqft)</p>
+                      </div>
+                    </h2>
+                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Unit-9, Bhubaneswar</p>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+                  </article>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
         
