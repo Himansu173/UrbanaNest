@@ -54,5 +54,3 @@
 <script src="../assets/vendor/jQuery/jquery-3.7.1.min.js"></script>
 <script src="../js/allProperties.js"></script>
 <script src="../js/ownerProfile.js"></script>
-</body>
-</html>
