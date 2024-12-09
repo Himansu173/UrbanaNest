@@ -75,7 +75,7 @@ require_once "navbar.php"
 
       <div class="row gy-3">
 
-        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-inner">
             <!-- First slide -->
             <div class="carousel-item active">
@@ -98,7 +98,7 @@ require_once "navbar.php"
                     </h2>
                     <p class="post-category">&#x20B9;43,00,000 (2140 Sqft)</p>
                     <p class="post-category">Bani Bihar, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="#">View Details</a>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
                 <!-- End post list item -->
@@ -122,7 +122,7 @@ require_once "navbar.php"
                     </h2>
                     <p class="post-category">&#x20B9;20,00,000 (1480 Sqft)</p>
                     <p class="post-category">Badambadi, Cuttack</p>
-                    <a class="btn custom-btn" href="#">View Details</a>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
                 <!-- End post list item -->
@@ -145,7 +145,7 @@ require_once "navbar.php"
                     </h2>
                     <p class="post-category">&#x20B9;20,00,000 (1480 Sqft)</p>
                     <p class="post-category">Badambadi, Cuttack</p>
-                    <a class="btn custom-btn" href="#">View Details</a>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
                 <!-- End post list item -->
@@ -172,7 +172,7 @@ require_once "navbar.php"
                     </h2>
                     <p class="post-category">&#x20B9;6,00,000 (5200 Sqft)</p>
                     <p class="post-category">Jatni, Khorda</p>
-                    <a class="btn custom-btn" href="#">View Details</a>
+                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
                   </article>
                 </div>
                 <!-- End post list item -->

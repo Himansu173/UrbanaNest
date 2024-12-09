@@ -40,9 +40,9 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="./index.php#hero" class="active">Home</a></li>
-        <li><a href="./index.php#recent-posts" class="active">Recent Post</a></li>
-        <li><a href="./index.php#contact" class="active">Contact</a></li>          
+        <li><a href="./home.php#hero" class="active">Home</a></li>
+        <li><a href="./home.php#recent-posts" class="active">Recent Post</a></li>
+        <li><a href="./home.php#contact" class="active">Contact</a></li>          
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
