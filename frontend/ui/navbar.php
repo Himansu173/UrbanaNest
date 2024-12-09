@@ -31,7 +31,7 @@
 </head>
 
 <body class="index-page">  
-  <div class="container-fluid position-relative d-flex align-items-center position-sticky sticky-top justify-content-between bg-white shadow-sm">
+  <div class="container-fluid py-xl-0 py-3 position-relative d-flex align-items-center position-sticky sticky-top justify-content-between bg-white shadow-sm">
     <a href="index.php" class="logo d-flex align-items-center me-xl-0">
       <!-- <img src="../assets/img/logo.png" alt="LOGO" class="rounded" height="35px"> -->
        <div class="p-1 bg-black text-white rounded fw-bold">UN</div>
@@ -46,8 +46,8 @@
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
+    <a class="btn btn-dark btn-sm" data-bs-toggle="modal"  data-bs-target="#loginModal">Log In</a>
     <?php
       require_once "login.php"
     ?>
-    <a class="btn btn-dark btn-sm" data-bs-toggle="modal"  data-bs-target="#loginModal">Log In</a>
   </div>

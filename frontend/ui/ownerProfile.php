@@ -96,7 +96,7 @@
             <span class="fw-semibold fs-5 text-primary-emphasis">Your Properties</span>            
             <button class="btn btn-primary" id="addNew"><i class="bi bi-plus-lg"></i> Add a new property</button>
         </div>
-        <div class="d-flex flex-wrap justify-content-evenly" id="yourProperties"></div>
     </div>
+    <div class="d-flex flex-wrap justify-content-evenly" id="yourProperties"></div>
 </div>
 <?php require_once "footer.php" ?>
