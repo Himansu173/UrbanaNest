@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
-</head>
-<body>
-    <!-- button for Signup button trigger -->
-    <div class="container mt-5 text-center">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
-            Sign Up
-        </button>
-    </div>
    <!-- total form  -->
   <div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -98,10 +83,6 @@
       })
     });
   </script>
-    <script src="../../bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../js/signupValidation.js"></script>
-</body>
-</html>
 <?php
     if (isset($_POST['signup'])) {
       $name = htmlspecialchars($_POST['name']);

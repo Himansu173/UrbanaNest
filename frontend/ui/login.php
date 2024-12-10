@@ -1,5 +1,5 @@
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content">
       <div class="modal-header">
           <h1 class="modal-title fs-5 text-warning" id="staticBackdropLabel">Login Page</h1>
@@ -15,11 +15,22 @@
             <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
             <label for="password">Password</label>
           </div>
-          <div class="mb-2 text-end">
-            <input type="submit" class="btn btn-primary px-4 me-2 shadow" name="login" id="login" value="Login">
-          </div>
+          <div class="d-flex justify-content-between ">
+                <div class="mb-2">
+                    <label for="password">Don't have an account?</label>
+                    <a type="#" class="" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        Signup
+                    </a>
+                </div>
+                <div class="mb-2 text-end">
+                  <input type="submit" class="btn btn-primary px-4 me-2 shadow" name="login" id="login" value="Login">
+                </div>
+            </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+<?php
+require_once "signup.php"
+?>
