@@ -65,7 +65,7 @@
                <span class="ms-1"> Bhubaneswa, Odisha</span>
             </p>
             <div class="mt-3 d-flex align-items-center justify-content-between">
-               <div class="d-flex align-items-center">
+               <div class="d-flex align-items-center" style="cursor:pointer;">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="user" height="35px" width="35px" class="rounded-circle">
                   <p class="card-text ms-2 fw-semibold fs-6">Chandrasekhar Singh</p>
                </div>
