@@ -108,6 +108,19 @@
         if(!$response){
             die($conn->error);
         }
+        
+        $contacts='CREATE TABLE contacts (
+            sn INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(20) NOT NULL,
+            email VARCHAR(20) NOT NULL,
+            subject VARCHAR(20) NOT NULL,
+            message VARCHAR(50) NOT NULL,
+        )';
+        $stm=$conn->prepare($contacts);
+        $response=$stm->execute();
+        if(!$response){
+            die($conn->error);
+        }
     }else{
         $conn=new mysqli($host,$username,$password,$database) or die($conn->connect_error);
     }

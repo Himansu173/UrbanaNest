@@ -70,7 +70,7 @@ require_once "navbar.php"
       <p>Discover Your Perfect Rental Home with Our Curated Selection of Recent Posts Tailored to Suit Your Style, Needs, and Budget!</p>
       <a class="my-3 float-end" href="./allProperties.php">All<i class="bi bi-chevron-double-right"></i></a>
     </div><!-- End Section Title -->
-    
+
     <div class="container">
       <div class="row mx-auto">
           <!-- First Card -->
@@ -245,7 +245,7 @@ require_once "navbar.php"
         </div>
 
         <div class="col-lg-6">
-          <form action="contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form action="../../database/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
             <div class="row gy-4">
 
               <div class="col-md-6">
@@ -265,11 +265,7 @@ require_once "navbar.php"
               </div>
 
               <div class="col-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
+                <input type="submit" value="Send Message" class="btn custom-btn">
               </div>
 
             </div>
