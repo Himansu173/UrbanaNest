@@ -70,137 +70,120 @@ require_once "navbar.php"
       <p>Discover Your Perfect Rental Home with Our Curated Selection of Recent Posts Tailored to Suit Your Style, Needs, and Budget!</p>
       <a class="my-3 float-end" href="./allProperties.php">All<i class="bi bi-chevron-double-right"></i></a>
     </div><!-- End Section Title -->
-
+    
     <div class="container">
-
-      <div class="row g-5">
-
-        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-          <div class="carousel-inner">
-            <!-- First slide -->
-            <div class="carousel-item active">
-              <div class="row mx-auto">
-                <!-- First Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>3BHK - Sunrise Apartment</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-                <!-- Second Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>2BHK - Green Residency</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-                <!-- Third Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>Cozy Villa</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
+      <div class="row mx-auto">
+          <!-- First Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
               </div>
-            </div>
-            <!-- Second Slide -->
-            <div class="carousel-item">
-              <div class="row mx-auto">
-                <!-- Fourth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-4.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>5BHK - Luxury Estate</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;1.2Cr (4500 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Jayadev Vihar, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
+              <h2 class="title">
+                <div class="name">
+                  <a>3BHK - Sunrise Apartment</a>
                 </div>
-                <!-- Fifth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-5.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>4BHK - Blossom Residency</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;95.8L (3500 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Chandrasekharpur, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
+                <div class="price">
+                  <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
                 </div>
-                <!-- Sixth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-6.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>3BHK - Maple Heights</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;55.3L (2400 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Unit-9, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-              </div>
-            </div>
-
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
           </div>
-        </div>
-        
+          <!-- Second Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>2BHK - Green Residency</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Third Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>Cozy Villa</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+      </div>
+      <div class="row mx-auto my-3">
+          <!-- First Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>3BHK - Sunrise Apartment</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Second Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>2BHK - Green Residency</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Third Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>Cozy Villa</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
       </div><!-- End recent posts list -->
-
     </div>
 
   </section><!-- /Recent Posts Section -->
@@ -222,7 +205,7 @@ require_once "navbar.php"
 
           <div class="row gy-4">
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="200">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt"></i>
                 <h3>Address</h3>
                 <p>Silicon Hills, BBSR</p>
@@ -231,7 +214,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="300">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-telephone"></i>
                 <h3>Call Us</h3>
                 <p>+91 12345 06789</p>
@@ -240,7 +223,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="400">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-envelope"></i>
                 <h3>Email Us</h3>
                 <p>info@urbannest.com</p>
@@ -249,7 +232,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="500">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-clock"></i>
                 <h3>Open Hours</h3>
                 <p>Monday - Friday</p>
