@@ -31,8 +31,7 @@ require_once "navbar.php"
               <input type="text" name="location" placeholder="Search by location">
               <input type="submit" value="Search">
             </div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
+            <!-- <div class="error-message"></div> -->
           </form>
         </div>
       </div>
@@ -245,29 +244,29 @@ require_once "navbar.php"
         </div>
 
         <div class="col-lg-6">
-          <form action="../../database/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200" id="contactForm">
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                <input type="text" name="name" class="form-control" id="username" placeholder="Your Name" >
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                <input type="email" class="form-control" name="email" id="useremail" placeholder="Your Email" >
               </div>
 
               <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" >
               </div>
 
               <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <textarea class="form-control" name="message" rows="6" id="message" placeholder="Message" ></textarea>
               </div>
 
               <div class="col-12 text-center">
                 <input type="submit" value="Send Message" class="btn custom-btn">
               </div>
-
+              <div id="toastContainer"></div>
             </div>
           </form>
         </div><!-- End Contact Form -->
@@ -293,3 +292,97 @@ require_once "navbar.php"
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="../js/main.js"></script> -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#contactForm").submit(function (e) {
+      e.preventDefault();
+
+      // Clear previous error/success messages
+      $("#toastContainer").html("");
+
+      // Validate the form fields
+      let name = $("#username").val().trim();
+      let email = $("#useremail").val().trim();
+      let subject = $("#subject").val().trim();
+      let message = $("#message").val().trim();
+
+      let errors = [];
+
+      // Name validation
+      if (name === "") {
+        errors.push("Please enter your name.");
+      }
+
+      // Email validation
+      if (email === "") {
+        errors.push("Please enter your email.");
+      } else if (!validateEmail(email)) {
+        errors.push("Please enter a valid email address.");
+      }
+
+      // Subject validation
+      if (subject === "") {
+        errors.push("Please enter a subject.");
+      }
+
+      // Message validation
+      if (message === "") {
+        errors.push("Please enter a message.");
+      } else if(message.length < 50){
+        errors.push("Message must be atleast 50 character");
+      }
+
+      if (errors.length > 0) {
+        let errorStr = `<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Errors:</strong><ul>`;
+        errors.forEach(function (error) {
+          errorStr += `<li>${error}</li>`;
+        });
+        errorStr += `</ul><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+        $("#toastContainer").html(errorStr);
+        return;
+      }
+
+      const formData = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+      };
+      console.log(formData);
+
+      $.ajax({
+        url: "../../database/contact.php",
+        method: "POST",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          if (response === "success") {
+            let successStr = `
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Message Sent</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            `;
+            $("#toastContainer").html(successStr);
+          } else {
+            let errorStr = `
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Something went wrong. Please try again later.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            `;
+            $("#toastContainer").html(errorStr);
+          }
+        }
+      });
+    });
+
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return re.test(email);
+    }
+  });
+</script>
+
