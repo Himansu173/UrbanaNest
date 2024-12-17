@@ -6,7 +6,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="login.php" method="post" id="loginForm">
+        <form action="home.php" method="post" id="loginForm">
           <div class="form-floating mb-4 shadow rounded">
             <input type="email" class="form-control "style="border:none;" name="email" id="email" placeholder="Enter your gmail" required>
             <label for="email" class="form-label">Email</label>
@@ -36,12 +36,11 @@
 <script src="../assets/vendor/jQuery/jquery-3.7.1.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-        console.log("Script loaded");
+        // console.log("Script loaded");
         const form = document.querySelector("#loginForm");
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
         form.addEventListener("submit", function (e) {
-            console.log("form submited");
             e.preventDefault();
             let isValid = true;
 
@@ -53,16 +52,26 @@
                 isValid = false;
             }
 
-            // Validate Password
-            if (passwordInput.value.length < 6) {
-                document.getElementById("errorLoginPassword").innerText = "Password must be at least 6 characters long.";
-                isValid = false;
-            }
-
-            // Submit the form if valid
             if (isValid) {
-                form.submit();
-
+              
+              $.ajax({
+                url: "../../database/verify_login.php",
+                type: "POST",
+                data: {
+                  email: emailInput.value,
+                  password: passwordInput.value
+                },
+                success: function (response){
+                  console.log(response);
+                  if(response.trim() === "success"){
+                    console.log("form submited");
+                    form.submit();
+                  }else{
+                    console.log("error");
+                    
+                  }
+                }
+              })
             }
         });
     });

@@ -51,7 +51,7 @@
   </div>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        console.log("Script loaded");
+        // console.log("Script loaded");
         const form = document.querySelector("#form");
         const nameInput = document.getElementById("name");
         const emailInput = document.getElementById("signupemail");
