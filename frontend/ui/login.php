@@ -1,4 +1,4 @@
-<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
   <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content">
       <div class="modal-header">
@@ -6,19 +6,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" id="loginForm">
           <div class="form-floating mb-4 shadow rounded">
             <input type="email" class="form-control "style="border:none;" name="email" id="email" placeholder="Enter your gmail" required>
             <label for="email" class="form-label">Email</label>
           </div>
+          <label for=""id="errorLoginEmail" class="text-danger"></label>
           <div class="form-floating mb-4 shadow rounded">
             <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
             <label for="password">Password</label>
           </div>
+          <label for=""id="errorLoginPassword" class="text-danger"></label>
           <div class="d-flex justify-content-between ">
                 <div class="mb-2">
-                    <label for="password">Don't have an account?</label>
-                    <a type="#" class="" data-bs-toggle="modal" data-bs-target="#signupModal">
+                    <label for="">Don't have an account?</label>
+                    <a type="#" class="text-decoration-underline" data-bs-toggle="modal" data-bs-target="#signupModal">
                         Signup
                     </a>
                 </div>
@@ -31,6 +33,37 @@
     </div>
   </div>
 </div>
-<?php
-require_once "signup.php"
-?>
+<script src="../assets/vendor/jQuery/jquery-3.7.1.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+        console.log("Script loaded");
+        const form = document.querySelector("#loginForm");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        form.addEventListener("submit", function (e) {
+            console.log("form submited");
+            e.preventDefault();
+            let isValid = true;
+
+            document.getElementById("errorLoginEmail").innerText = "";
+            document.getElementById("errorLoginPassword").innerText = "";
+
+            if (!emailInput.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                document.getElementById("errorLoginEmail").innerText = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (passwordInput.value.length < 6) {
+                document.getElementById("errorLoginPassword").innerText = "Password must be at least 6 characters long.";
+                isValid = false;
+            }
+
+            // Submit the form if valid
+            if (isValid) {
+                form.submit();
+
+            }
+        });
+    });
+  </script>

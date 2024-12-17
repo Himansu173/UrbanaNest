@@ -1,5 +1,5 @@
    <!-- total form  -->
-  <div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,24 +7,24 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="#" method="post">
+          <form action="home.php" method="post" id="form">
             <div class="form-floating mb-4 shadow rounded">
-                <input type="text" class="form-control "style="border:none;" name="name" id="name" placeholder="Enter your gmail" required>
+                <input type="text" class="form-control "style="border:none;" name="name" id="name" placeholder="Enter your Name" required>
                 <label for="name" class="form-label">Name</label>
               </div>
               <label for=""id="errorName" class="text-danger"></label>
             <div class="form-floating mb-4 shadow rounded">
-                <input type="email" class="form-control "style="border:none;" name="email" id="email" placeholder="Enter your gmail" required>
+                <input type="email" class="form-control "style="border:none;" name="email" id="signupemail" placeholder="Enter your gmail" required>
                 <label for="email" class="form-label">Email</label>
               </div>
               <label for=""id="errorEmail" class="text-danger"></label>
             <div class="form-floating mb-4 shadow rounded">
-                <input type="tel" class="form-control "style="border:none;" name="Mobile" id="mobile" placeholder="Enter your gmail" required>
+                <input type="tel" class="form-control "style="border:none;" name="Mobile" id="mobile" placeholder="Enter your mobile number" required>
                 <label for="Mobile" class="form-label">Mobile</label>
               </div>
               <label for=""id="errorMobile" class="text-danger"></label>
             <div class="form-floating mb-4 shadow rounded">
-                <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
+                <input type="password" class="form-control" style="border:none;" name="password" id="signuppassword" placeholder="Enter your password" required>
                 <label for="password">Password</label>
               </div>
               <label for=""id="errorPassword" class="text-danger"></label>
@@ -49,47 +49,62 @@
       </div>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded",function(){
-      const form = document.querySelector("form");
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const mobileInput = document.getElementById("mobile");
-      const passwordInput = document.getElementById("password");
-      const confirmPasswordInput = document.getElementById("confirmPassword");
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Script loaded");
+        const form = document.querySelector("#form");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("signupemail");
+        const mobileInput = document.getElementById("mobile");
+        const passwordInput = document.getElementById("signuppassword");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
 
-      form.addEventListener("submit",function(e){
-        // let isValid= true;
-        if (!nameInput.value.match(/^[A-Za-z\s]+$/)) {
-            document.getElementById("errorName").innerText = "Name contain only Characters and Space";
-            // isValid = false;
-            e.preventDefault();
-        }
-        if(!mobileInput.value.match(/^[6-9][0-9]{9}$/)){
-          document.getElementById("errorMobile").innerText = "Mobile incorrect";
-          // isValid = false;
-          e.preventDefault();
-        }
-        
-        if (passwordInput.value !== confirmPasswordInput.value) {
-          document.getElementById("errorConfirmPassword").innerText = "Password and Confirm Password must be same.";
-          e.preventDefault();
-            // isValid = false;
-        }
-        if(isValid){
-          window.location=signup.php;
-        }
-        
-      })
+        form.addEventListener("submit", function (e) {
+            console.log("form submited");
+            e.preventDefault(); // Prevent form submission by default
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("errorName").innerText = "";
+            document.getElementById("errorEmail").innerText = "";
+            document.getElementById("errorMobile").innerText = "";
+            document.getElementById("errorPassword").innerText = "";
+            document.getElementById("errorConfirmPassword").innerText = "";
+
+            // Validate Name
+            if (!nameInput.value.match(/^[A-Za-z\s]+$/)) {
+                document.getElementById("errorName").innerText = "Name can only contain letters and spaces.";
+                isValid = false;
+            }
+
+            // Validate Email
+            if (!emailInput.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                document.getElementById("errorEmail").innerText = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate Mobile
+            if (!mobileInput.value.match(/^[6-9][0-9]{9}$/)) {
+                document.getElementById("errorMobile").innerText = "Please enter a valid 10-digit mobile number.";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (passwordInput.value.length < 6) {
+                document.getElementById("errorPassword").innerText = "Password must be at least 6 characters long.";
+                isValid = false;
+            }
+
+            // Validate Password Match
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                document.getElementById("errorConfirmPassword").innerText = "Password and Confirm Password must match.";
+                isValid = false;
+            }
+
+            // Submit the form if valid
+            if (isValid) {
+                form.submit(); // Allow form submission if validation passes
+            }
+        });
     });
   </script>
-<?php
-    if (isset($_POST['signup'])) {
-      $name = htmlspecialchars($_POST['name']);
-      $email = htmlspecialchars($_POST['email']);
-      $mobile = htmlspecialchars($_POST['Mobile']);
-      $password = htmlspecialchars($_POST['password']);
-      $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
-      print_r($_POST);
-    }
-?>
