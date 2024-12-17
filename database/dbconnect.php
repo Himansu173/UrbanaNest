@@ -46,11 +46,11 @@
             property_age VARCHAR DEFAULT "NA",
             balcony VARCHAR NOT NULL,
             area VARCHAR(20) NOT NULL,
-            status ENUM("Available", "UnAvailable") DEFAULT "Available",
-            parking BOOLEAN,
+            status VARCHAR("Available", "UnAvailable") DEFAULT "Available",
+            parking VARCHAR(10),
             furnishing_type VARCHAR(50),
-            power_backup BOOLEAN,
-            lift BOOLEAN,
+            power_backup VARCHAR(5),
+            lift VARCHAR(10),
             floor VARCHAR(10),
             date_of_listing DATE,
             date_of_available DATE,
@@ -74,7 +74,7 @@
             security_deposit VARCHAR(10),
             lease_period VARCHAR(10),
             m_charges VARCHAR(10),
-            negotiable BOOLEAN,
+            negotiable VARCHAR(10),
             FOREIGN KEY (pid) REFERENCES property(pid) ON DELETE CASCADE
         )';
         $stm=$conn->prepare($finaceDetails);
@@ -87,7 +87,7 @@
             pid INT PRIMARY KEY,
             state VARCHAR(50),
             city VARCHAR(50),
-            locality VARCHAR(255),
+            locality VARCHAR(50),
             pincode VARCHAR(10),
             FOREIGN KEY (pid) REFERENCES property(pid) ON DELETE CASCADE
         )';
