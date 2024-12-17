@@ -70,10 +70,10 @@
 
         $finaceDetails='CREATE TABLE finance_details (
             pid INT PRIMARY KEY,
-            rent_amount DECIMAL(10, 2),
-            security_deposit DECIMAL(10, 2),
-            lease_period INT,
-            m_charges DECIMAL(10, 2),
+            rent_amount VARCHAR(10),
+            security_deposit VARCHAR(10),
+            lease_period VARCHAR(10),
+            m_charges VARCHAR(10),
             negotiable BOOLEAN,
             FOREIGN KEY (pid) REFERENCES property(pid) ON DELETE CASCADE
         )';
@@ -104,6 +104,19 @@
             FOREIGN KEY (pid) REFERENCES property(pid) ON DELETE CASCADE
         )';
         $stm=$conn->prepare($photo);
+        $response=$stm->execute();
+        if(!$response){
+            die($conn->error);
+        }
+        
+        $contacts='CREATE TABLE contacts (
+            sn INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(20) NOT NULL,
+            email VARCHAR(20) NOT NULL,
+            subject VARCHAR(20) NOT NULL,
+            message VARCHAR(50) NOT NULL,
+        )';
+        $stm=$conn->prepare($contacts);
         $response=$stm->execute();
         if(!$response){
             die($conn->error);

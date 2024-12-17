@@ -31,8 +31,7 @@ require_once "navbar.php"
               <input type="text" name="location" placeholder="Search by location">
               <input type="submit" value="Search">
             </div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
+            <!-- <div class="error-message"></div> -->
           </form>
         </div>
       </div>
@@ -72,135 +71,118 @@ require_once "navbar.php"
     </div><!-- End Section Title -->
 
     <div class="container">
-
-      <div class="row g-5">
-
-        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-          <div class="carousel-inner">
-            <!-- First slide -->
-            <div class="carousel-item active">
-              <div class="row mx-auto">
-                <!-- First Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>3BHK - Sunrise Apartment</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-                <!-- Second Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>2BHK - Green Residency</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-                <!-- Third Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>Cozy Villa</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
+      <div class="row mx-auto">
+          <!-- First Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
               </div>
-            </div>
-            <!-- Second Slide -->
-            <div class="carousel-item">
-              <div class="row mx-auto">
-                <!-- Fourth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-4.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>5BHK - Luxury Estate</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;1.2Cr (4500 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Jayadev Vihar, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
+              <h2 class="title">
+                <div class="name">
+                  <a>3BHK - Sunrise Apartment</a>
                 </div>
-                <!-- Fifth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-5.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>4BHK - Blossom Residency</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;95.8L (3500 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Chandrasekharpur, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
+                <div class="price">
+                  <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
                 </div>
-                <!-- Sixth Card -->
-                <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
-                  <article>
-                    <div class="post-img">
-                      <img src="../assets/img/blog/blog-6.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
-                    </div>
-                    <h2 class="title">
-                      <div class="name">
-                        <a>3BHK - Maple Heights</a>
-                      </div>
-                      <div class="price">
-                        <p class="post-category">&#x20B9;55.3L (2400 Sqft)</p>
-                      </div>
-                    </h2>
-                    <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Unit-9, Bhubaneswar</p>
-                    <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
-                  </article>
-                </div>
-              </div>
-            </div>
-
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
           </div>
-        </div>
-        
+          <!-- Second Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>2BHK - Green Residency</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Third Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>Cozy Villa</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+      </div>
+      <div class="row mx-auto my-3">
+          <!-- First Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>3BHK - Sunrise Apartment</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;45.5L (2200 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Patia, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Second Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>2BHK - Green Residency</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;30.5L (1600 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Khandagiri, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
+          <!-- Third Card -->
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+            <article>
+              <div class="post-img">
+                <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
+              </div>
+              <h2 class="title">
+                <div class="name">
+                  <a>Cozy Villa</a>
+                </div>
+                <div class="price">
+                  <p class="post-category">&#x20B9;18.2L (900 Sqft)</p>
+                </div>
+              </h2>
+              <p class="post-category"><i class="bi bi-geo-alt-fill"></i>Sailashree Vihar, Bhubaneswar</p>
+              <a class="btn custom-btn" href="./propertyDetails.php">View Details</a>
+            </article>
+          </div>
       </div><!-- End recent posts list -->
-
     </div>
 
   </section><!-- /Recent Posts Section -->
@@ -222,7 +204,7 @@ require_once "navbar.php"
 
           <div class="row gy-4">
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="200">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt"></i>
                 <h3>Address</h3>
                 <p>Silicon Hills, BBSR</p>
@@ -231,7 +213,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="300">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-telephone"></i>
                 <h3>Call Us</h3>
                 <p>+91 12345 06789</p>
@@ -240,7 +222,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="400">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-envelope"></i>
                 <h3>Email Us</h3>
                 <p>info@urbannest.com</p>
@@ -249,7 +231,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade" data-aos-delay="500">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-clock"></i>
                 <h3>Open Hours</h3>
                 <p>Monday - Friday</p>
@@ -262,33 +244,29 @@ require_once "navbar.php"
         </div>
 
         <div class="col-lg-6">
-          <form action="contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200" id="contactForm">
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                <input type="text" name="name" class="form-control" id="username" placeholder="Your Name" >
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                <input type="email" class="form-control" name="email" id="useremail" placeholder="Your Email" >
               </div>
 
               <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" >
               </div>
 
               <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <textarea class="form-control" name="message" rows="6" id="message" placeholder="Message" ></textarea>
               </div>
 
               <div class="col-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
+                <input type="submit" value="Send Message" class="btn custom-btn">
               </div>
-
+              <div id="toastContainer"></div>
             </div>
           </form>
         </div><!-- End Contact Form -->
@@ -314,3 +292,97 @@ require_once "navbar.php"
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="../js/main.js"></script> -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#contactForm").submit(function (e) {
+      e.preventDefault();
+
+      // Clear previous error/success messages
+      $("#toastContainer").html("");
+
+      // Validate the form fields
+      let name = $("#username").val().trim();
+      let email = $("#useremail").val().trim();
+      let subject = $("#subject").val().trim();
+      let message = $("#message").val().trim();
+
+      let errors = [];
+
+      // Name validation
+      if (name === "") {
+        errors.push("Please enter your name.");
+      }
+
+      // Email validation
+      if (email === "") {
+        errors.push("Please enter your email.");
+      } else if (!validateEmail(email)) {
+        errors.push("Please enter a valid email address.");
+      }
+
+      // Subject validation
+      if (subject === "") {
+        errors.push("Please enter a subject.");
+      }
+
+      // Message validation
+      if (message === "") {
+        errors.push("Please enter a message.");
+      } else if(message.length < 50){
+        errors.push("Message must be atleast 50 character");
+      }
+
+      if (errors.length > 0) {
+        let errorStr = `<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Errors:</strong><ul>`;
+        errors.forEach(function (error) {
+          errorStr += `<li>${error}</li>`;
+        });
+        errorStr += `</ul><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+        $("#toastContainer").html(errorStr);
+        return;
+      }
+
+      const formData = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+      };
+      console.log(formData);
+
+      $.ajax({
+        url: "../../database/contact.php",
+        method: "POST",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          if (response === "success") {
+            let successStr = `
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Message Sent</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            `;
+            $("#toastContainer").html(successStr);
+          } else {
+            let errorStr = `
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Something went wrong. Please try again later.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            `;
+            $("#toastContainer").html(errorStr);
+          }
+        }
+      });
+    });
+
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return re.test(email);
+    }
+  });
+</script>
+
