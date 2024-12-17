@@ -29,4 +29,3 @@ INSERT INTO property (uid, listing_type, listed_by, property_type, house_type, p
 (9027, 'PG', 'Owner', 'Residential', '1BHK', '1 year', 'Yes', '350 sq.ft', 'Available', false, 'Furnished', true, false, 'Ground', '2024-11-18', '2024-12-18'),
 (9028, 'Rent', 'Builder', 'Residential', '4BHK', '8 years', 'Yes', '2000 sq.ft', 'Available', true, 'Semi-furnished', true, true, '2nd', '2024-12-03', '2025-01-03'),
 (9029, 'Sale', 'Owner', 'Residential', '5BHK', '9 years', 'No', '3000 sq.ft', 'Available', true, 'Fully Furnished', true, true, '3rd', '2024-11-30', '2025-01-30'),
-(9030, 'Rent', 'Agent', 'Residential', '2BHK', '4 years', 'Yes', '1050 sq.ft', 'Available', true, 'Unfurnished', false, false, '1st', '2024-12-02', '2025-01-02');

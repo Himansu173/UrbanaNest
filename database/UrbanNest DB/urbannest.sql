@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 12:51 PM
+-- Generation Time: Dec 17, 2024 at 02:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -35,6 +35,22 @@ CREATE TABLE `address` (
   `pincode` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`pid`, `state`, `city`, `locality`, `pincode`) VALUES
+(1061, 'Delhi', 'New Delhi', 'Connaught Place', '110001'),
+(1062, 'Maharashtra', 'Mumbai', 'Marine Drive', '400001'),
+(1063, 'Uttar Pradesh', 'Lucknow', 'Hazratganj', '226001'),
+(1064, 'Kolkata', 'Kolkata', 'Park Street', '700001'),
+(1065, 'Gujarat', 'Ahmedabad', 'Law Garden', '380001'),
+(1066, 'Rajasthan', 'Jaipur', 'Ashok Nagar', '302001'),
+(1067, 'Tamil Nadu', 'Chennai', 'Anna Salai', '600001'),
+(1068, 'Telangana', 'Hyderabad', 'Banjara Hills', '500001'),
+(1069, 'Punjab', 'Amritsar', 'Mall Road', '143001'),
+(1070, 'Karnataka', 'Bengaluru', 'Residency Road', '560001');
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +74,7 @@ INSERT INTO `contacts` (`sl`, `name`, `email`, `subject`, `message`) VALUES
 (23, 'abc', 'abc@gmail.com', 'abc sub', 'sbc text'),
 (24, 'Anil Sahu', 'anilsahu9786@gmail.c', 'wow', 'nice'),
 (25, 'Gourav', 'g123@gmail.com', 'abc', 'abc text'),
-(26, 'abc', 'abc@gmail.com', 'abc', 'jidfvidu'),
-(27, 'abc', 'xyz@gmail.com', 'sdbiu', 'sjdnu jhbsdh bdsuybhae hdbubhsd hbdvuhba hdbuvysbd'),
-(28, 'xyz', 'xyz@gmail.com', 'sdbiu', 'sjdnu jhbsdh bdsuybhae hdbubhsd hbdvuhba hdbuvysbd');
+(26, 'abc', 'abc@gmail.com', 'abc', 'jidfvidu');
 
 -- --------------------------------------------------------
 
@@ -72,10 +86,26 @@ CREATE TABLE `finance_details` (
   `pid` int(11) NOT NULL,
   `rent_amount` decimal(10,2) DEFAULT NULL,
   `security_deposit` decimal(10,2) DEFAULT NULL,
-  `lease_period` int(11) DEFAULT NULL,
+  `lease_period` varchar(11) DEFAULT NULL,
   `m_charges` decimal(10,2) DEFAULT NULL,
   `negotiable` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `finance_details`
+--
+
+INSERT INTO `finance_details` (`pid`, `rent_amount`, `security_deposit`, `lease_period`, `m_charges`, `negotiable`) VALUES
+(1061, 20000.00, 40000.00, '12', 500.00, 1),
+(1062, 25000.00, 50000.00, '24', 700.00, 0),
+(1063, 15000.00, 30000.00, '6', 600.00, 1),
+(1064, 22000.00, 44000.00, '12', 500.00, 1),
+(1065, 18000.00, 36000.00, '18', 450.00, 0),
+(1066, 30000.00, 60000.00, '24', 800.00, 1),
+(1067, 27000.00, 54000.00, '12', 650.00, 1),
+(1068, 35000.00, 70000.00, '36', 1000.00, 0),
+(1069, 12000.00, 24000.00, '6', 300.00, 1),
+(1070, 28000.00, 56000.00, '18', 750.00, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +138,37 @@ CREATE TABLE `property` (
 --
 
 INSERT INTO `property` (`pid`, `uid`, `listing_type`, `listed_by`, `property_type`, `house_type`, `property_age`, `balcony`, `area`, `status`, `parking`, `furnishing_type`, `power_backup`, `lift`, `floor`, `date_of_listing`, `date_of_available`) VALUES
-(1031, 9000, 'Rent', 'Owner', 'Residential', '3BHK', 2, 0, 1200, 'Available', 1, 'Unfurnished', 1, 1, 2, '2024-12-01', '2025-01-01');
+(1061, 9000, 'Rent', 'Owner', 'Residential', '3BHK', 2, 0, 1200, 'Available', 1, 'Unfurnished', 1, 1, 2, '2024-12-01', '2025-01-01'),
+(1062, 9000, 'Rent', 'Owner', 'Residential', '3BHK', 2, 0, 1200, 'Available', 1, 'Unfurnished', 1, 1, 2, '2024-12-01', '2025-01-01'),
+(1063, 9001, 'Sale', 'Builder', 'Residential', '2BHK', 5, 0, 800, 'Available', 1, 'Semi-furnished', 0, 1, 1, '2024-11-15', '2024-12-15'),
+(1064, 9002, 'PG', 'Agent', 'Residential', '1BHK', 0, 0, 300, 'Available', 0, 'Furnished', 0, 0, 0, '2024-11-10', '2024-12-10'),
+(1065, 9003, 'Rent', 'Owner', 'Residential', '2BHK', 3, 0, 1000, 'Available', 1, 'Fully Furnished', 1, 1, 3, '2024-11-05', '2025-01-05'),
+(1066, 9004, 'Sale', 'Owner', 'Residential', '1BHK', 10, 0, 600, 'UnAvailable', 1, 'Unfurnished', 0, 1, 1, '2024-10-25', '2024-11-25'),
+(1067, 9005, 'Rent', 'Agent', 'Residential', '3BHK', 4, 0, 1400, 'Available', 1, 'Semi-furnished', 1, 0, 4, '2024-12-02', '2025-01-02'),
+(1068, 9006, 'PG', 'Owner', 'Residential', '1BHK', 0, 0, 250, 'Available', 0, 'Furnished', 1, 0, 0, '2024-11-12', '2024-12-12'),
+(1069, 9007, 'Sale', 'Builder', 'Commercial', '2BHK', 8, 0, 1800, 'Available', 1, 'Fully Furnished', 1, 1, 5, '2024-12-01', '2025-01-01'),
+(1070, 9008, 'Rent', 'Owner', 'Residential', '2BHK', 2, 0, 950, 'Available', 0, 'Unfurnished', 0, 0, 2, '2024-11-14', '2025-01-14'),
+(1071, 9009, 'PG', 'Agent', 'Residential', '3BHK', 0, 0, 350, 'Available', 1, 'Fully Furnished', 1, 1, 0, '2024-11-20', '2024-12-20'),
+(1072, 9010, 'Rent', 'Owner', 'Residential', '3BHK', 6, 0, 1100, 'UnAvailable', 1, 'Semi-furnished', 1, 0, 3, '2024-11-25', '2025-01-25'),
+(1073, 9011, 'Sale', 'Agent', 'Residential', '1BHK', 7, 0, 650, 'Available', 0, 'Furnished', 1, 1, 1, '2024-11-18', '2024-12-18'),
+(1074, 9012, 'PG', 'Owner', 'Residential', '2BHK', 1, 0, 500, 'Available', 1, 'Unfurnished', 0, 0, 0, '2024-11-09', '2024-12-09'),
+(1075, 9013, 'Sale', 'Builder', 'Residential', '4BHK', 3, 0, 2000, 'Available', 1, 'Fully Furnished', 1, 1, 2, '2024-11-30', '2025-01-30'),
+(1076, 9014, 'Rent', 'Owner', 'Commercial', '1BHK', 5, 0, 900, 'Available', 1, 'Semi-furnished', 0, 0, 4, '2024-12-04', '2025-01-04'),
+(1077, 9015, 'Sale', 'Agent', 'Residential', '2BHK', 6, 0, 1200, 'UnAvailable', 1, 'Unfurnished', 1, 1, 3, '2024-11-22', '2024-12-22'),
+(1078, 9016, 'Rent', 'Builder', 'Residential', '5BHK', 4, 0, 2500, 'Available', 1, 'Fully Furnished', 1, 1, 6, '2024-12-01', '2025-01-01'),
+(1079, 9017, 'PG', 'Agent', 'Residential', '2BHK', 0, 0, 400, 'Available', 0, 'Furnished', 0, 0, 0, '2024-11-15', '2024-12-15'),
+(1080, 9018, 'Sale', 'Owner', 'Commercial', '1BHK', 3, 0, 850, 'Available', 1, 'Semi-furnished', 1, 1, 2, '2024-12-03', '2025-01-03'),
+(1081, 9019, 'Rent', 'Builder', 'Residential', '2BHK', 9, 0, 1000, 'UnAvailable', 0, 'Unfurnished', 0, 1, 1, '2024-11-26', '2024-12-26'),
+(1082, 9020, 'PG', 'Owner', 'Residential', '1BHK', 0, 0, 350, 'Available', 1, 'Fully Furnished', 1, 0, 0, '2024-11-20', '2024-12-20'),
+(1083, 9021, 'Rent', 'Agent', 'Residential', '3BHK', 5, 0, 1350, 'Available', 1, 'Semi-furnished', 1, 1, 4, '2024-12-05', '2025-01-05'),
+(1084, 9022, 'Sale', 'Owner', 'Residential', '2BHK', 6, 0, 1000, 'Available', 1, 'Furnished', 0, 1, 2, '2024-11-12', '2024-12-12'),
+(1085, 9023, 'PG', 'Agent', 'Residential', '1BHK', 3, 0, 500, 'Available', 1, 'Unfurnished', 1, 0, 0, '2024-11-08', '2024-12-08'),
+(1086, 9024, 'Sale', 'Builder', 'Residential', '2BHK', 7, 0, 1100, 'Available', 1, 'Semi-furnished', 0, 0, 3, '2024-12-02', '2025-01-02'),
+(1087, 9025, 'Rent', 'Owner', 'Commercial', '3BHK', 2, 0, 1500, 'Available', 1, 'Fully Furnished', 1, 1, 5, '2024-12-06', '2025-01-06'),
+(1088, 9026, 'Sale', 'Agent', 'Residential', '3BHK', 5, 0, 1600, 'Available', 1, 'Unfurnished', 0, 1, 4, '2024-11-23', '2024-12-23'),
+(1089, 9027, 'PG', 'Owner', 'Residential', '1BHK', 1, 0, 350, 'Available', 0, 'Furnished', 1, 0, 0, '2024-11-18', '2024-12-18'),
+(1090, 9028, 'Rent', 'Builder', 'Residential', '4BHK', 8, 0, 2000, 'Available', 1, 'Semi-furnished', 1, 1, 2, '2024-12-03', '2025-01-03'),
+(1091, 9029, 'Sale', 'Owner', 'Residential', '5BHK', 9, 0, 3000, 'Available', 1, 'Fully Furnished', 1, 1, 3, '2024-11-30', '2025-01-30');
 
 -- --------------------------------------------------------
 
@@ -231,7 +291,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `property`
 --
 ALTER TABLE `property`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1062;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1092;
 
 --
 -- AUTO_INCREMENT for table `property_photo`
