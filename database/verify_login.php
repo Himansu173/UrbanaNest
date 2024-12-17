@@ -4,7 +4,7 @@
 
     require_once "dbconnect.php";
     $loginQry = "SELECT * FROM user where email=?";
-    $stmt = $conn->prepare();
+    $stmt = $conn->prepare($loginQry);
     $stmt->bind_param("s",$email);
     $res = $stmt->execute();
     if(!$res){

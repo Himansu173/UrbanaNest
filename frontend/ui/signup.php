@@ -103,7 +103,29 @@
 
             // Submit the form if valid
             if (isValid) {
-                form.submit(); // Allow form submission if validation passes
+              console.log(emailInput.value);
+              
+              $.ajax({
+                url: "../../database/verify_signup.php",
+                type: "POST",
+                data: {
+                  name: nameInput.value,
+                  email: emailInput.value,
+                  mobile: mobileInput.value,
+                  password: passwordInput.value
+                },
+                success: function (response){
+                  console.log(response);
+                  if(response.trim() === "success"){
+                    console.log("form submited student added");
+                    form.submit();
+                  }else if(response.trim() === "error"){
+                    console.log("email already exist");
+                  }else{
+                      console.log("Other error");
+                  }
+                }
+              })
             }
         });
     });
