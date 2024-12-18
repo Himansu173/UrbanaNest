@@ -67,7 +67,7 @@ require_once "navbar.php"
     <div class="container section-title" data-aos="fade-up">
       <h2>Recent Posts</h2>
       <p>Discover Your Perfect Rental Home with Our Curated Selection of Recent Posts Tailored to Suit Your Style, Needs, and Budget!</p>
-      <a class="my-3 float-end" href="./allProperties.php">All<i class="bi bi-chevron-double-right"></i></a>
+      <a class="my-3 float-end" href="./allProperties.php?page=1">All<i class="bi bi-chevron-double-right"></i></a>
     </div><!-- End Section Title -->
 
     <div class="container">
