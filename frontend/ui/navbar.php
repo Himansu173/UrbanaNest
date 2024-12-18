@@ -39,6 +39,7 @@
     />
     <link rel="stylesheet" href="../css/allProperties.css" />
     <link rel="stylesheet" href="../css/ownerProfile.css" />
+    <link rel="stylesheet" href="../css/adminDashboard.css" />
 
     <!-- Main CSS File -->
     <link href="../css/main.css" rel="stylesheet" />
