@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
   <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content">
@@ -65,10 +68,11 @@
                   console.log(response);
                   if(response.trim() === "success"){
                     console.log("form submited");
+                    console.log(response);
                     form.submit();
                   }else{
                     console.log("error");
-                    
+ 
                   }
                 }
               })
@@ -76,3 +80,8 @@
         });
     });
   </script>
+<?php
+if(isset($_SESSION['userId'])){
+    echo $_SESSION['userId'] ;
+}
+?>

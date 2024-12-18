@@ -23,6 +23,14 @@
                 <label for="Mobile" class="form-label">Mobile</label>
               </div>
               <label for=""id="errorMobile" class="text-danger"></label>
+              <div class="form-floating mb-4 shadow rounded">
+                <input type="text" class="form-control "style="border:none;" name="state" id="state" placeholder="Enter your state" required>
+                <label for="state" class="form-label">State</label>
+              </div>
+              <div class="form-floating mb-4 shadow rounded">
+                <input type="text" class="form-control "style="border:none;" name="city" id="city" placeholder="Enter your City" required>
+                <label for="city" class="form-label">City</label>
+              </div>
             <div class="form-floating mb-4 shadow rounded">
                 <input type="password" class="form-control" style="border:none;" name="password" id="signuppassword" placeholder="Enter your password" required>
                 <label for="password">Password</label>
@@ -56,6 +64,8 @@
         const nameInput = document.getElementById("name");
         const emailInput = document.getElementById("signupemail");
         const mobileInput = document.getElementById("mobile");
+        const cityInput = document.getElementById("city");
+        const stateInput = document.getElementById("state");
         const passwordInput = document.getElementById("signuppassword");
         const confirmPasswordInput = document.getElementById("confirmPassword");
 
@@ -103,7 +113,7 @@
 
             // Submit the form if valid
             if (isValid) {
-              console.log(emailInput.value);
+              console.log();
               
               $.ajax({
                 url: "../../database/verify_signup.php",
@@ -112,6 +122,7 @@
                   name: nameInput.value,
                   email: emailInput.value,
                   mobile: mobileInput.value,
+                  address: cityInput.value+","+stateInput.value,
                   password: passwordInput.value
                 },
                 success: function (response){
@@ -121,11 +132,12 @@
                     form.submit();
                   }else if(response.trim() === "error"){
                     console.log("email already exist");
+                    document.getElementById("errorEmail").innerText = "Email already exist use another email.";
                   }else{
                       console.log("Other error");
                   }
                 }
-              })
+              }) 
             }
         });
     });
