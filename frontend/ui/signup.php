@@ -8,35 +8,35 @@
         </div>
         <div class="modal-body">
           <form action="home.php" method="post" id="form">
-            <div class="form-floating mb-4 shadow rounded">
+            <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="text" class="form-control "style="border:none;" name="name" id="name" placeholder="Enter your Name" required>
                 <label for="name" class="form-label">Name</label>
               </div>
               <label for=""id="errorName" class="text-danger"></label>
-            <div class="form-floating mb-4 shadow rounded">
+            <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="email" class="form-control "style="border:none;" name="email" id="signupemail" placeholder="Enter your gmail" required>
                 <label for="email" class="form-label">Email</label>
               </div>
               <label for=""id="errorEmail" class="text-danger"></label>
-            <div class="form-floating mb-4 shadow rounded">
+            <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="tel" class="form-control "style="border:none;" name="Mobile" id="mobile" placeholder="Enter your mobile number" required>
                 <label for="Mobile" class="form-label">Mobile</label>
               </div>
               <label for=""id="errorMobile" class="text-danger"></label>
-              <div class="form-floating mb-4 shadow rounded">
+              <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="text" class="form-control "style="border:none;" name="state" id="state" placeholder="Enter your state" required>
                 <label for="state" class="form-label">State</label>
               </div>
-              <div class="form-floating mb-4 shadow rounded">
+              <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="text" class="form-control "style="border:none;" name="city" id="city" placeholder="Enter your City" required>
                 <label for="city" class="form-label">City</label>
               </div>
-            <div class="form-floating mb-4 shadow rounded">
+            <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="password" class="form-control" style="border:none;" name="password" id="signuppassword" placeholder="Enter your password" required>
                 <label for="password">Password</label>
               </div>
               <label for=""id="errorPassword" class="text-danger"></label>
-            <div class="form-floating mb-4 shadow rounded">
+            <div class="form-floating mb-4 shadow-sm rounded">
                 <input type="password" class="form-control" style="border:none;" name="confirmPassword" id="confirmPassword" placeholder="Enter your password" required>
                 <label for="confirmPassword">Confirm Password</label>
               </div>

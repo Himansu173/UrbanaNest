@@ -10,12 +10,12 @@
       </div>
       <div class="modal-body">
         <form action="home.php" method="post" id="loginForm">
-          <div class="form-floating mb-4 shadow rounded">
+          <div class="form-floating mb-4 shadow-sm rounded">
             <input type="email" class="form-control "style="border:none;" name="email" id="email" placeholder="Enter your gmail" required>
             <label for="email" class="form-label">Email</label>
           </div>
           <label for=""id="errorLoginEmail" class="text-danger"></label>
-          <div class="form-floating mb-4 shadow rounded">
+          <div class="form-floating mb-4 shadow-sm rounded">
             <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
             <label for="password">Password</label>
           </div>
@@ -23,7 +23,7 @@
           <div class="d-flex justify-content-between ">
                 <div class="mb-2">
                     <label for="">Don't have an account?</label>
-                    <a type="#" class="text-decoration-underline" data-bs-toggle="modal" data-bs-target="#signupModal">
+                    <a type="#" class="text-decoration-underline" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#signupModal">
                         Signup
                     </a>
                 </div>
@@ -65,14 +65,17 @@
                   password: passwordInput.value
                 },
                 success: function (response){
-                  console.log(response);
+                  //console.log(response);
                   if(response.trim() === "success"){
                     console.log("form submited");
                     console.log(response);
                     form.submit();
-                  }else{
-                    console.log("error");
- 
+                  }else if(response.trim() === "error1"){
+                    console.log("error1");
+                    document.getElementById("errorLoginEmail").innerText = "Email is not registered?";
+                  }else if(response.trim() === "error2"){
+                    console.log("error2");
+                    document.getElementById("errorLoginPassword").innerText = "Incorrect Password!!!";
                   }
                 }
               })

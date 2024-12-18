@@ -18,12 +18,12 @@
       $user = $result->fetch_assoc();
       if($user['password']==$password){
         $_SESSION['userId']= $user['uid'];
-        echo "sucess";
+        echo "success";
       }else{
-        echo "error";
+        echo "error2";
       }
     }else{
-      echo "error";
+      echo "error1";
     }
     // if($email === "soumendrabehera99@gmail.com" && $password === "password"){
     //   echo "success";
