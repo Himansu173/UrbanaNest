@@ -10,16 +10,16 @@
       </div>
       <div class="modal-body">
         <form action="home.php" method="post" id="loginForm">
-          <div class="form-floating mb-4 shadow-sm rounded">
+          <div class="form-floating shadow-sm rounded">
             <input type="email" class="form-control "style="border:none;" name="email" id="email" placeholder="Enter your gmail" required>
             <label for="email" class="form-label">Email</label>
           </div>
-          <label for=""id="errorLoginEmail" class="text-danger"></label>
-          <div class="form-floating mb-4 shadow-sm rounded">
+          <label for=""id="errorLoginEmail" class="text-danger mb-4"></label>
+          <div class="form-floating shadow-sm rounded">
             <input type="password" class="form-control" style="border:none;" name="password" id="password" placeholder="Enter your password" required>
             <label for="password">Password</label>
           </div>
-          <label for=""id="errorLoginPassword" class="text-danger"></label>
+          <label for=""id="errorLoginPassword" class="text-danger mb-4"></label>
           <div class="d-flex justify-content-between ">
                 <div class="mb-2">
                     <label for="">Don't have an account?</label>
