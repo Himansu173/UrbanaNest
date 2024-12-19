@@ -1,4 +1,10 @@
-<?php $isLogged = false; ?>
+<?php  
+  $isLogged = false;
+  session_start();
+  if(isset($_SESSION['userId'])){
+    $isLogged = true;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -97,7 +103,7 @@
                 <a class="dropdown-item" href="#">Settings</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="./logout.php">Logout</a>
               </li>
             </ul>
           </div>'
