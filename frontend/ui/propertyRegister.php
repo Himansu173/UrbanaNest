@@ -5,16 +5,17 @@
     <div class="bg-warning p-1 mb-3">
         <h2 class="text-center">List Your Property for Sale/Rent</h2>
     </div>
-    <form action="propertyRegister.php" method="post" enctype="multipart/form-data">
+    <form action="../../database/add_property.php" method="post" enctype="multipart/form-data" id="formProperty">
+        <p class="text-center text-danger">(*) fields indicates mandotary field.</p>
         <div class="row mb-3 g-2 shadow-sm p-2 rounded">
             <h5 class="mt-4 text-warning">Listing Details</h5>
             <hr class="">
             <div class="col-md-4">
-                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Listing Type</label>
+                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Listing Type <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="listingType" id="rent"  class="btn-check" value="Rent" required>
-                        <label for="rent" class="btn btn-outline-warning">Rent</label>
+                        <input  type="radio" name="listingType" id="rentListing"  class="btn-check" value="Rent" required>
+                        <label for="rentListing" class="btn btn-outline-warning">Rent</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="listingType" id="sale"  class="btn-check" value="Sale" required>
@@ -27,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="" class="form-label fw-semibold" style="font-size: 0.9rem;">Property Type</label>
+                <label for="" class="form-label fw-semibold" style="font-size: 0.9rem;">Property Type <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="propertyType" id="residensial"  class="btn-check" value="Residential" required>
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="" class="form-label fw-semibold" style="font-size: 0.9rem;">Building Type</label>
+                <label for="" class="form-label fw-semibold" style="font-size: 0.9rem;">Building Type <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="buildingType" id="house"  class="btn-check" value="house" required>
@@ -57,7 +58,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Listed By</label>
+                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Listed By <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="listedBy" id="owner"  class="btn-check" value="Owner" required>
@@ -74,14 +75,17 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="houseType" class="form-label fw-semibold" style="font-size: 0.9rem;">House Type</label>
-                <select class="form-select border-warning" id="houseType" required>
+                <label for="houseType" class="form-label fw-semibold" style="font-size: 0.9rem;">House Type <span class="text-danger">*</span></label>
+                <select class="form-select border-warning" id="houseType" name="houseType" required>
                     <option selected disabled>Choose House Type</option>
-                    <option value="1">1 BHK</option>
-                    <option value="2">2 BHK</option>
-                    <option value="3">3 BHK</option>
-                    <option value="4">4 BHK</option>
-                    <option value="5">5 BHK</option>
+                    <option value="1 BHK">1 BHK</option>
+                    <option value="2 BHK">2 BHK</option>
+                    <option value="3 BHK">3 BHK</option>
+                    <option value="4 BHK">4 BHK</option>
+                    <option value="5 BHK">5 BHK</option>
+                    <option value="1 Hall">1 Hall</option>
+                    <option value="villa">Villa</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
         </div>
@@ -89,20 +93,21 @@
         <h5 class="mt-4 text-warning">Location Information</h5>
         <hr class="">
             <div class="col-md-4">
-                <label for="state" class="fw-semibold form-label" style="font-size: 0.9rem;">State</label>
-                <input  type="text" name="state" id="state"  class="form-control border-warning" required>
+                <label for="state" class="fw-semibold form-label" style="font-size: 0.9rem;">State <span class="text-danger">*</span></label>
+                <input  type="text" name="stateProperty" id="stateProperty"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
-                <label for="city" class="fw-semibold form-label" style="font-size: 0.9rem;">City</label>
-                <input  type="text" name="city" id="city"  class="form-control border-warning" required>
+                <label for="city" class="fw-semibold form-label" style="font-size: 0.9rem;">City <span class="text-danger">*</span></label>
+                <input  type="text" name="cityProperty" id="cityProperty"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
-                <label for="locality" class="fw-semibold form-label" style="font-size: 0.9rem;">Locality</label>
+                <label for="locality" class="fw-semibold form-label" style="font-size: 0.9rem;">Locality <span class="text-danger">*</span></label>
                 <input  type="text" name="locality" id="locality"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
-                <label for="pinCode" class="fw-semibold form-label" style="font-size: 0.9rem;">Pin Code</label>
+                <label for="pinCode" class="fw-semibold form-label" style="font-size: 0.9rem;">Pin Code <span class="text-danger">*</span></label>
                 <input  type="zip" name="pinCode" id="pinCode"  class="form-control border-warning" required>
+                <label for="" id="errorPincode" class="text-danger"></label>
             </div>
         </div>
 <!-- Property Specification-->
@@ -110,23 +115,23 @@
             <h5 class="mt-4 text-warning">Property Specifications</h5>
             <hr class="">
             <div class="col-md-4">
-                <label for="area" class="fw-semibold form-label" style="font-size: 0.9rem;">Area</label>
+                <label for="area" class="fw-semibold form-label" style="font-size: 0.9rem;">Area <span class="text-danger">*</span></label>
                 <input  type="text" name="area" id="area"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
-                <label for="carpetArea" class="fw-semibold form-label" style="font-size: 0.9rem;">Carpet Area</label>
+                <label for="carpetArea" class="fw-semibold form-label" style="font-size: 0.9rem;">Carpet Area <span class="text-danger">*</span></label>
                 <input  type="text" name="carpetArea" id="carpetArea"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
                 <label for="age" class="fw-semibold form-label" style="font-size: 0.9rem;">Age of Property</label>
-                <input  type="text" name="age" id="age"  class="form-control border-warning" required>
+                <input  type="text" name="age" id="age"  class="form-control border-warning">
             </div>
             <div class="col-md-4">
                 <label for="floorNumber" class="fw-semibold form-label" style="font-size: 0.9rem;">Floor Number</label>
-                <input  type="text" name="floorNumber" id="floorNumber"  class="form-control border-warning" required>
+                <input  type="text" name="floorNumber" id="floorNumber"  class="form-control border-warning" >
             </div>
             <div class="col-md-4 ">
-                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Furnishing Status</label>
+                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Furnishing Status <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="furnish" id="fully"  class="btn-check" value="Fully" required>
@@ -144,7 +149,7 @@
             </div>
             
             <div class="col-md-4">
-                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Balcony</label>
+                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Balcony <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="balcony" id="individual"  class="btn-check" value="individual" required>
@@ -164,11 +169,11 @@
                 <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Power Backup</label>
                 <div>
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="power" id="available"  class="btn-check" value="available" required>
+                        <input  type="radio" name="power" id="available"  class="btn-check" value="available" >
                         <label for="available" class="btn btn-outline-warning">Available</label>
                     </div> 
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="power" id="powerNa"  class="btn-check" value="not available" required>
+                        <input  type="radio" name="power" id="powerNa"  class="btn-check" value="not available" >
                         <label for="powerNa" class="btn btn-outline-warning">Not Available</label>
                     </div>    
                 </div>
@@ -177,11 +182,11 @@
                 <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Lift Availability</label>
                 <div>
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="lift" id="liftYes"  class="btn-check" value="Yes" required>
+                        <input  type="radio" name="lift" id="liftYes"  class="btn-check" value="Yes">
                         <label for="liftYes" class="btn btn-outline-warning">Yes</label>
                     </div> 
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="lift" id="liftNo"  class="btn-check" value="No" required>
+                        <input  type="radio" name="lift" id="liftNo"  class="btn-check" value="No">
                         <label for="liftNo" class="btn btn-outline-warning">No</label> 
                     </div>     
                 </div>
@@ -190,11 +195,11 @@
                 <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Parking</label>
                 <div>
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="lift" id="parkingAvailable"  class="btn-check" value="available" required>
+                        <input  type="radio" name="parking" id="parkingAvailable"  class="btn-check" value="available" >
                         <label for="parkingAvailable" class="btn btn-outline-warning">Available</label>
                     </div> 
                     <div class="form-check form-check-inline">
-                        <input  type="radio" name="lift" id="parkingNa"  class="btn-check" value="not available" required>
+                        <input  type="radio" name="parking" id="parkingNa"  class="btn-check" value="not available" >
                         <label for="parkingNa" class="btn btn-outline-warning">Not Available</label>
                     </div>    
                 </div>
@@ -204,16 +209,17 @@
             <h5 class="mt-4 text-warning">Financial Details</h5>
             <hr class="">
             <div class="col-md-4">
-                <label for="rent" class="fw-semibold form-label" style="font-size: 0.9rem;">Rent</label>
+                <label for="rent" class="fw-semibold form-label" style="font-size: 0.9rem;">Rent <span class="text-danger">*</span></label>
                 <input  type="text" name="rent" id="rent"  class="form-control border-warning" required>
+                <label for="" id="errorRent" class="text-danger"></label>
             </div>
-            
             <div class="col-md-4">
-                <label for="securityDeposite" class="fw-semibold form-label" style="font-size: 0.9rem;">Security Deposite:</label>
+                <label for="securityDeposite" class="fw-semibold form-label" style="font-size: 0.9rem;">Security Deposite <span class="text-danger">*</span></label>
                 <input  type="text" name="securityDeposite" id="securityDeposite"  class="form-control border-warning" required>
+                <label for="" id="errorSecurityDeposite" class="text-danger"></label>
             </div>
             <div class="col-md-4">
-                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Negotiable</label>
+                <label for="" class="fw-semibold form-label" style="font-size: 0.9rem;">Negotiable <span class="text-danger">*</span></label>
                 <div>
                     <div class="form-check form-check-inline">
                         <input  type="radio" name="negotiable" id="negotiableYes"  class="btn-check" value="Yes" required>
@@ -226,19 +232,20 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label for="leasePeriod" class="fw-semibold form-label" style="font-size: 0.9rem;">Lease Period</label>
+                <label for="leasePeriod" class="fw-semibold form-label" style="font-size: 0.9rem;">Lease Period <span class="text-danger">*</span></label>
                 <input  type="text" name="leasePeriod" id="leasePeriod"  class="form-control border-warning" required>
             </div>
             <div class="col-md-4">
-                <label for="maintenanceCharges" class="fw-semibold form-label" style="font-size: 0.9rem;">Maintenance Charges</label>
+                <label for="maintenanceCharges" class="fw-semibold form-label" style="font-size: 0.9rem;">Maintenance Charges <span class="text-danger">*</span></label>
                 <input  type="text" name="maintenanceCharges" id="maintenanceCharges"  class="form-control border-warning" required>
+                <label for="" id="errorMaintenanceCharges" class="text-danger"></label>
             </div>
         </div>
         <div class="row mb-3 g-2 shadow-sm p-2 rounded">
         <h5 class="mt-4 text-warning">Availability</h5>
         <hr class="">
             <div class="col-md-4">
-                <label for="availabilityDate" class="fw-semibold form-label" style="font-size: 0.9rem;">Availability Date</label>
+                <label for="availabilityDate" class="fw-semibold form-label" style="font-size: 0.9rem;">Availability Date <span class="text-danger">*</span></label>
                 <input  type="date" name="availabilityDate" id="availabilityDate"  class="form-control border-warning" required>
             </div>
             
@@ -253,78 +260,62 @@
             </div>
             <div class="col-md-8">
                 <label for="description" class="form-label fw-semibold" style="font-size: 0.9rem;">Additional Information</label>
-                <textarea class="form-control border-warning" id="description" rows="4" placeholder="Write any additional information here"></textarea>
+                <textarea class="form-control border-warning" id="description" name="description" rows="4" placeholder="Write any additional information here"></textarea>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-12 text-end">
-                <input  type="submit" value="Post now" name="submit" class="btn btn-outline-warning" required>
+                <input  type="submit" value="Post now" name="submit" class="btn btn-outline-warning">
             </div>
         </div>
         </div>
     </form>
 </div>
-<?php require_once "footer.php" ?>
-<?php
-
-if(isset($_POST['submit'])){
-    print_r ($_POST);
-}
-?>
-
-<!-- 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    console.log("form loaded");
+    const form = document.querySelector("#formProperty");
+    const rent = document.querySelector("#rent");
+    const securityDeposite = document.querySelector("#securityDeposite");
+    const maintenanceCharges = document.querySelector("#maintenanceCharges");
+    const pinCode = document.querySelector("#pinCode");
 
     form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevent default form submission
-
-        // Perform front-end validation
-        if (!validateForm()) {
-            alert("Please fill out all required fields correctly.");
-            return;
-        }
-
-        // Collect form data
-        const formData = new FormData(form);
-
-        // Send AJAX request
-        fetch("propertyRegister.php", {
-            method: "POST",
-            body: formData,
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Property listed successfully!");
-                    form.reset(); // Reset the form on success
-                } else {
-                    alert(`Error: ${data.message}`);
-                }
-            })
-            .catch(error => {
-                console.error("Error submitting form:", error);
-                alert("An error occurred. Please try again.");
-            });
-    });
-
-    function validateForm() {
         let isValid = true;
-
-        // Example: Validate required text fields
-        document.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
-            if (!input.value.trim()) {
-                input.classList.add("is-invalid");
-                isValid = false;
-            } else {
-                input.classList.remove("is-invalid");
-            }
-        });
-
-        return isValid;
-    }
+        document.getElementById("errorRent").innerText="";
+        document.getElementById("errorSecurityDeposite").innerText="";
+        document.getElementById("errorMaintenanceCharges").innerText="";
+        document.getElementById("errorPincode").innerText="";
+        if(!rent.value.match(/^[0-9]+$/)){
+            document.getElementById("errorRent").innerText="contains only numbers";
+            isValid = false;
+        }
+        if(!securityDeposite.value.match(/^\d+$/)){
+            document.getElementById("errorSecurityDeposite").innerText="contains only numbers";
+            isValid = false;
+        }
+        if(!maintenanceCharges.value.match(/^\d+$/)){
+            document.getElementById("errorMaintenanceCharges").innerText="contains only numbers";
+            isValid = false;
+        }
+        if(!maintenanceCharges.value.match(/^\d+$/)){
+            document.getElementById("errorMaintenanceCharges").innerText="contains only numbers";
+            isValid = false;
+        }
+        if(!pinCode.value.match(/^[1-9][0-9]{5}$/)){
+            document.getElementById("errorPincode").innerText="Enter a valid Pincode";
+            isValid = false;
+        }
+        if(!isValid){
+            e.preventDefault();
+        }else{
+            form.submit();
+        }
+    });
 });
-</script> -->
+</script>
+<?php require_once "footer.php" ?>
+
+
 
 

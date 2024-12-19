@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2024 at 12:00 PM
+-- Generation Time: Dec 19, 2024 at 06:52 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,10 +90,16 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`sn`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Anil', 'anil@gmail.com', 'abc subject', 'sdzbk kjdsnio jdsnjl nsdiu sdHBn'),
-(9, 'Ishita Desai', 'ishita.desai@example.com', 'Selling Property', 'I want to list my house for sale. What are the steps involved?'),
-(10, 'Naman Kapoor', 'naman.kapoor@example.com', 'Broker Charges', 'Could you clarify the broker charges for rental properties?'),
-(11, 'Tanya Mehta', 'tanya.mehta@example.com', 'Property Availability', 'Is the villa in Banjara Hills still available for rent?');
+(1, 'Aarav Sharma', 'aarav.sharma@example.com', 'Rental Inquiry', 'I am interested in renting a 2BHK apartment in Delhi.'),
+(2, 'Priya Patel', 'priya.patel@example.com', 'Feedback on Listings', 'The website listings are clear, but I would like to see more filters for price range.'),
+(3, 'Rohan Gupta', 'rohan.gupta@example.com', 'Property Visit', 'Can I schedule a visit for the house listed in Marine Drive, Mumbai?'),
+(4, 'Sneha Verma', 'sneha.verma@example.com', 'Issue with Payment', 'I faced an issue while paying the booking amount. Please assist.'),
+(5, 'Kabir Singh', 'kabir.singh@example.com', 'Search Functionality', 'The search feature is great, but it would be better with location auto-suggestions.'),
+(6, 'Ananya Iyer', 'ananya.iyer@example.com', 'Property Details', 'I need more information on the 3BHK house listed in Anna Salai, Chennai.'),
+(7, 'Devansh Joshi', 'devansh.joshi@example.com', 'Feedback on Experience', 'The website is user-friendly, but adding a chat support feature would be helpful.'),
+(8, 'Ishita Desai', 'ishita.desai@example.com', 'Selling Property', 'I want to list my house for sale. What are the steps involved?'),
+(9, 'Naman Kapoor', 'naman.kapoor@example.com', 'Broker Charges', 'Could you clarify the broker charges for rental properties?'),
+(10, 'Tanya Mehta', 'tanya.mehta@example.com', 'Property Availability', 'Is the villa in Banjara Hills still available for rent?');
 
 -- --------------------------------------------------------
 
@@ -158,10 +164,12 @@ CREATE TABLE `property` (
   `listing_type` varchar(50) NOT NULL,
   `listed_by` varchar(50) NOT NULL,
   `property_type` varchar(50) NOT NULL,
+  `building_type` varchar(30) NOT NULL,
   `house_type` varchar(50) NOT NULL,
   `property_age` varchar(20) DEFAULT 'NA',
   `balcony` varchar(20) NOT NULL,
   `area` varchar(20) NOT NULL,
+  `carpet_area` varchar(20) NOT NULL,
   `status` varchar(20) DEFAULT 'Available',
   `parking` varchar(20) DEFAULT 'NA',
   `furnishing_type` varchar(50) NOT NULL,
@@ -169,44 +177,45 @@ CREATE TABLE `property` (
   `lift` varchar(10) DEFAULT 'No',
   `floor` varchar(10) DEFAULT 'NA',
   `date_of_listing` date NOT NULL,
-  `date_of_available` date DEFAULT NULL
+  `date_of_available` date NOT NULL,
+  `description` text DEFAULT 'No Description Available.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `property`
 --
 
-INSERT INTO `property` (`pid`, `uid`, `listing_type`, `listed_by`, `property_type`, `house_type`, `property_age`, `balcony`, `area`, `status`, `parking`, `furnishing_type`, `power_backup`, `lift`, `floor`, `date_of_listing`, `date_of_available`) VALUES
-(1000, 9000, 'Rent', 'Owner', 'Residential', '3BHK', '2 years', 'Yes', '1200 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'Yes', '2nd', '2024-12-01', '2025-01-01'),
-(1001, 9001, 'Sale', 'Builder', 'Residential', '2BHK', '5 years', 'Yes', '800 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'Yes', '1st', '2024-11-15', '2024-12-15'),
-(1002, 9002, 'PG', 'Agent', 'Residential', '1BHK', 'New', 'No', '300 sq.ft', 'Available', 'Not Available', 'Furnished', 'Not Available', 'No', 'Ground', '2024-11-10', '2024-12-10'),
-(1003, 9003, 'Rent', 'Owner', 'Residential', '2BHK', '3 years', 'Yes', '1000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-11-05', '2025-01-05'),
-(1004, 9004, 'Sale', 'Owner', 'Residential', '1BHK', '10 years', 'No', '600 sq.ft', 'UnAvailable', 'Available', 'Unfurnished', 'Not Available', 'Yes', '1st', '2024-10-25', '2024-11-25'),
-(1005, 9005, 'Rent', 'Agent', 'Residential', '3BHK', '4 years', 'Yes', '1400 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'No', '4th', '2024-12-02', '2025-01-02'),
-(1006, 9006, 'PG', 'Owner', 'Residential', '1BHK', 'New', 'No', '250 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-12', '2024-12-12'),
-(1007, 9007, 'Sale', 'Builder', 'Commercial', '2BHK', '8 years', 'Yes', '1800 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '5th', '2024-12-01', '2025-01-01'),
-(1008, 9008, 'Rent', 'Owner', 'Residential', '2BHK', '2 years', 'No', '950 sq.ft', 'Available', 'Not Available', 'Unfurnished', 'Not Available', 'No', '2nd', '2024-11-14', '2025-01-14'),
-(1009, 9009, 'PG', 'Agent', 'Residential', '3BHK', 'New', 'Yes', '350 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Ground', '2024-11-20', '2024-12-20'),
-(1010, 9010, 'Rent', 'Owner', 'Residential', '3BHK', '6 years', 'Yes', '1100 sq.ft', 'UnAvailable', 'Available', 'Semi-furnished', 'Available', 'No', '3rd', '2024-11-25', '2025-01-25'),
-(1011, 9011, 'Sale', 'Agent', 'Residential', '1BHK', '7 years', 'No', '650 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'Yes', '1st', '2024-11-18', '2024-12-18'),
-(1012, 9012, 'PG', 'Owner', 'Residential', '2BHK', '1 year', 'Yes', '500 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'No', 'Ground', '2024-11-09', '2024-12-09'),
-(1013, 9013, 'Sale', 'Builder', 'Residential', '4BHK', '3 years', 'Yes', '2000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '2nd', '2024-11-30', '2025-01-30'),
-(1014, 9014, 'Rent', 'Owner', 'Commercial', '1BHK', '5 years', 'No', '900 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'No', '4th', '2024-12-04', '2025-01-04'),
-(1015, 9015, 'Sale', 'Agent', 'Residential', '2BHK', '6 years', 'Yes', '1200 sq.ft', 'UnAvailable', 'Available', 'Unfurnished', 'Available', 'Yes', '3rd', '2024-11-22', '2024-12-22'),
-(1016, 9016, 'Rent', 'Builder', 'Residential', '5BHK', '4 years', 'Yes', '2500 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '6th', '2024-12-01', '2025-01-01'),
-(1017, 9017, 'PG', 'Agent', 'Residential', '2BHK', 'New', 'No', '400 sq.ft', 'Available', 'Not Available', 'Furnished', 'Not Available', 'No', 'Ground', '2024-11-15', '2024-12-15'),
-(1018, 9018, 'Sale', 'Owner', 'Commercial', '1BHK', '3 years', 'Yes', '850 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-12-03', '2025-01-03'),
-(1019, 9019, 'Rent', 'Builder', 'Residential', '2BHK', '9 years', 'No', '1000 sq.ft', 'UnAvailable', 'Not Available', 'Unfurnished', 'Not Available', 'Yes', '1st', '2024-11-26', '2024-12-26'),
-(1020, 9020, 'PG', 'Owner', 'Residential', '1BHK', 'New', 'Yes', '350 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'No', 'Ground', '2024-11-20', '2024-12-20'),
-(1021, 9021, 'Rent', 'Agent', 'Residential', '3BHK', '5 years', 'No', '1350 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '4th', '2024-12-05', '2025-01-05'),
-(1022, 9022, 'Sale', 'Owner', 'Residential', '2BHK', '6 years', 'Yes', '1000 sq.ft', 'Available', 'Available', 'Furnished', 'Not Available', 'Yes', '2nd', '2024-11-12', '2024-12-12'),
-(1023, 9023, 'PG', 'Agent', 'Residential', '1BHK', '3 years', 'No', '500 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'No', 'Ground', '2024-11-08', '2024-12-08'),
-(1024, 9024, 'Sale', 'Builder', 'Residential', '2BHK', '7 years', 'Yes', '1100 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'No', '3rd', '2024-12-02', '2025-01-02'),
-(1025, 9025, 'Rent', 'Owner', 'Commercial', '3BHK', '2 years', 'Yes', '1500 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '5th', '2024-12-06', '2025-01-06'),
-(1026, 9026, 'Sale', 'Agent', 'Residential', '3BHK', '5 years', 'No', '1600 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'Yes', '4th', '2024-11-23', '2024-12-23'),
-(1027, 9027, 'PG', 'Owner', 'Residential', '1BHK', '1 year', 'Yes', '350 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-18', '2024-12-18'),
-(1028, 9028, 'Rent', 'Builder', 'Residential', '4BHK', '8 years', 'Yes', '2000 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-12-03', '2025-01-03'),
-(1029, 9029, 'Sale', 'Owner', 'Residential', '5BHK', '9 years', 'No', '3000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-11-30', '2025-01-30');
+INSERT INTO `property` (`pid`, `uid`, `listing_type`, `listed_by`, `property_type`, `building_type`, `house_type`, `property_age`, `balcony`, `area`, `carpet_area`, `status`, `parking`, `furnishing_type`, `power_backup`, `lift`, `floor`, `date_of_listing`, `date_of_available`, `description`) VALUES
+(1000, 9000, 'Rent', 'Owner', 'Residential', 'Apartment', '3BHK', '2 years', 'Yes', '1200 sq.ft', '1100 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'Yes', '2nd', '2024-12-01', '2025-01-01', 'Located in a prime locality, this spacious 3BHK apartment boasts a comfortable living experience. With modern amenities such as 24x7 security and power backup, this property ensures a hassle-free lifestyle. Its proximity to schools, markets, and public transport makes it an ideal choice for families.'),
+(1001, 9001, 'Sale', 'Builder', 'Residential', 'Apartment', '2BHK', '5 years', 'Yes', '800 sq.ft', '750 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'Yes', '1st', '2024-11-15', '2024-12-15', 'This 2BHK apartment is designed for urban living with a touch of elegance. Located in the vibrant city center, it offers easy access to shopping malls, parks, and major business hubs. With semi-furnished interiors, it’s a ready-to-move-in delight.'),
+(1002, 9002, 'PG', 'Agent', 'Residential', 'Apartment', '1BHK', 'New', 'No', '300 sq.ft', '270 sq.ft', 'Available', 'Not Available', 'Furnished', 'Not Available', 'No', 'Ground', '2024-11-10', '2024-12-10', 'Ideal for young professionals and students, this newly constructed PG offers a fully furnished space with all essential amenities. Its central location ensures easy connectivity to educational institutions and offices.'),
+(1003, 9003, 'Rent', 'Owner', 'Residential', 'Apartment', '2BHK', '3 years', 'Yes', '1000 sq.ft', '900 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-11-05', '2025-01-05', 'A beautifully furnished 2BHK apartment with modern interiors and amenities. Its spacious layout and prime location near parks and schools make it perfect for families. Enjoy a safe and secure living environment.'),
+(1004, 9004, 'Sale', 'Owner', 'Residential', 'House', '1BHK', '10 years', 'No', '600 sq.ft', '550 sq.ft', 'Unavailable', 'Available', 'Unfurnished', 'Not Available', 'Yes', '1st', '2024-10-25', '2024-11-25', 'This 1BHK house, located in a serene neighborhood, offers a peaceful living experience. With ample parking and a well-maintained locality, it is perfect for those looking for a cozy home.'),
+(1005, 9005, 'Rent', 'Agent', 'Residential', 'Apartment', '3BHK', '4 years', 'Yes', '1400 sq.ft', '1300 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'No', '4th', '2024-12-02', '2025-01-02', 'Enjoy the comfort of this semi-furnished 3BHK apartment, located in a well-connected area. The property features modern amenities and a spacious balcony, ideal for unwinding after a long day.'),
+(1006, 9006, 'PG', 'Owner', 'Residential', 'House', '1BHK', 'New', 'No', '250 sq.ft', '220 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-12', '2024-12-12', 'This newly built PG is fully furnished and perfect for students and single professionals. Situated in a peaceful locality, it ensures a comfortable stay with all basic facilities.'),
+(1007, 9007, 'Sale', 'Builder', 'Commercial', 'Office Space', '2BHK', '8 years', 'Yes', '1800 sq.ft', '1700 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '5th', '2024-12-01', '2025-01-01', 'A premium office space designed to meet all your business needs. Located in a commercial hub, it offers modern facilities and excellent connectivity to key areas of the city.'),
+(1008, 9008, 'Rent', 'Owner', 'Residential', 'Apartment', '2BHK', '2 years', 'No', '950 sq.ft', '850 sq.ft', 'Available', 'Not Available', 'Unfurnished', 'Not Available', 'No', '2nd', '2024-11-14', '2025-01-14', 'An unfurnished 2BHK apartment in a peaceful locality. Perfect for those looking to customize their living space. Conveniently located near public transport and essential services.'),
+(1009, 9009, 'PG', 'Agent', 'Residential', 'Apartment', '3BHK', 'New', 'Yes', '350 sq.ft', '300 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Ground', '2024-11-20', '2024-12-20', 'This newly constructed PG offers a comfortable and fully furnished living experience. With modern amenities and a safe environment, it’s perfect for students and working professionals.'),
+(1010, 9010, 'Sale', 'Builder', 'Residential', 'Villa', '4BHK', '1 year', 'Yes', '2500 sq.ft', '2300 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Duplex', '2024-12-01', '2025-01-01', 'Step into luxury with this magnificent 4BHK villa, designed to offer premium living. With spacious rooms, top-notch furnishings, and a private garden, this villa is perfect for those seeking elegance and comfort. Located in an upscale neighborhood, it provides easy access to major city hubs.'),
+(1011, 9011, 'Rent', 'Agent', 'Commercial', 'Shop', 'Single Room', '5 years', 'No', '400 sq.ft', '380 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'No', 'Ground', '2024-11-30', '2024-12-30', 'An ideal commercial space for rent, this 400 sq.ft shop is located in a bustling marketplace. Its high footfall area and ample parking make it perfect for businesses looking to thrive.'),
+(1012, 9012, 'Sale', 'Owner', 'Residential', 'Apartment', '2BHK', '3 years', 'Yes', '1000 sq.ft', '950 sq.ft', 'Available', 'Not Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-11-28', '2025-01-01', 'A semi-furnished 2BHK apartment designed to meet all your family’s needs. Situated in a gated community with 24x7 security and amenities like a swimming pool and gym.'),
+(1013, 9013, 'PG', 'Agent', 'Residential', 'House', 'Studio', 'New', 'No', '200 sq.ft', '180 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-25', '2024-12-25', 'This fully furnished studio PG is a perfect match for solo tenants. Located in a quiet neighborhood with easy access to cafes and transport links, it promises a cozy stay.'),
+(1014, 9014, 'Rent', 'Owner', 'Residential', 'Apartment', '1BHK', '4 years', 'No', '600 sq.ft', '550 sq.ft', 'Available', 'Not Available', 'Fully Furnished', 'Not Available', 'Yes', '1st', '2024-11-22', '2024-12-22', 'A fully furnished 1BHK apartment offering modern comforts and conveniences. Situated in a well-connected area close to shopping centers and public transport.'),
+(1015, 9015, 'Sale', 'Builder', 'Commercial', 'Office Space', 'Open Layout', '7 years', 'No', '1200 sq.ft', '1150 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '3rd', '2024-11-20', '2025-01-01', 'A strategically located office space with an open layout to accommodate various business setups. Equipped with essential amenities, it ensures a productive work environment.'),
+(1016, 9016, 'Rent', 'Agent', 'Residential', 'Apartment', '3BHK', '6 years', 'Yes', '1500 sq.ft', '1400 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'No', '5th', '2024-12-10', '2025-01-10', 'An expansive 3BHK apartment ideal for larger families. The property is well-lit and ventilated, offering a peaceful living experience. Located close to schools and supermarkets.'),
+(1017, 9017, 'Sale', 'Owner', 'Residential', 'Villa', '5BHK', '2 years', 'Yes', '3000 sq.ft', '2800 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Duplex', '2024-12-15', '2025-01-15', 'Experience grandeur in this luxurious 5BHK villa featuring opulent interiors, a private pool, and a landscaped garden. Located in a high-end community, it promises an exclusive lifestyle.'),
+(1018, 9018, 'PG', 'Owner', 'Residential', 'Apartment', '2BHK', 'New', 'Yes', '400 sq.ft', '350 sq.ft', 'Available', 'Not Available', 'Fully Furnished', 'Available', 'Yes', '1st', '2024-11-18', '2024-12-18', 'A newly constructed 2BHK PG offering fully furnished accommodations with modern amenities. Perfect for working professionals seeking convenience and comfort.'),
+(1019, 9019, 'Rent', 'Agent', 'Commercial', 'Shop', 'Single Room', '3 years', 'No', '450 sq.ft', '420 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'No', 'Ground', '2024-12-05', '2024-12-30', 'A commercial shop space located in a high-traffic area. Ideal for retail businesses, it offers excellent visibility and accessibility.'),
+(1020, 9020, 'Sale', 'Builder', 'Residential', 'Apartment', '3BHK', '1 year', 'Yes', '1800 sq.ft', '1700 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '6th', '2024-12-02', '2025-01-02', 'This semi-furnished 3BHK apartment is designed for modern living, with spacious interiors and premium amenities. Located in a sought-after neighborhood, it ensures a perfect blend of comfort and convenience.'),
+(1021, 9021, 'Sale', 'Agent', 'Residential', 'Apartment', '2BHK', '6 years', 'Yes', '950 sq.ft', '920 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'Yes', '3rd', '2024-12-10', '2025-01-10', 'A cozy and well-maintained 2BHK apartment with all the necessary fittings. Located in a quiet and serene locality, this property offers easy access to schools, parks, and shopping centers.'),
+(1022, 9022, 'Rent', 'Owner', 'Residential', 'Office Space', '2BHK', '6 years', 'Yes', '950 sq.ft', '920 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'Yes', '3rd', '2024-12-10', '2025-01-10', 'A compact and comfortable studio PG perfect for students or working professionals. Fully furnished and located in a peaceful neighborhood, it offers a convenient stay with excellent connectivity.'),
+(1023, 9023, 'Rent', 'Owner', 'Commercial', 'Office Space', 'Open Layout', '2 years', 'Yes', '1200 sq.ft', '1150 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-12-03', '2025-01-03', 'A spacious open-layout office space with a modern design, ideal for a growing business. It’s located in a prime commercial district with easy access to transportation hubs.'),
+(1024, 9024, 'Sale', 'Builder', 'Residential', 'Apartment', '3BHK', '8 years', 'Yes', '1500 sq.ft', '1400 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'Yes', '4th', '2024-11-28', '2025-01-28', 'This 3BHK apartment provides ample space for families. Located in a well-established neighborhood, it is near schools, hospitals, and shopping centers, making it an ideal place to live.'),
+(1025, 9025, 'Rent', 'Agent', 'Residential', 'Apartment', '2BHK', '4 years', 'Yes', '1000 sq.ft', '950 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-12-04', '2025-01-04', 'A well-furnished 2BHK apartment with a modern kitchen and comfortable living spaces. Situated in a safe and quiet residential area with good connectivity to major city spots.'),
+(1026, 9026, 'PG', 'Agent', 'Residential', 'Apartment', '1BHK', 'New', 'Yes', '350 sq.ft', '330 sq.ft', 'Available', 'Not Available', 'Fully Furnished', 'Available', 'No', 'Ground', '2024-12-07', '2024-12-21', 'This newly constructed 1BHK PG offers fully furnished rooms, perfect for those who prioritize comfort and security. Located in a vibrant and well-connected locality.'),
+(1027, 9027, 'Sale', 'Owner', 'Residential', 'Office Space', '4BHK', '6 years', 'Yes', '3000 sq.ft', '2800 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Duplex', '2024-12-09', '2025-01-09', 'A luxurious 4BHK villa with state-of-the-art amenities, including a private pool and garden. Located in a premium gated community, it offers a tranquil and high-end living experience.'),
+(1028, 9028, 'Rent', 'Owner', 'Commercial', 'House', '1BHK', '3 years', 'No', '400 sq.ft', '380 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'No', 'Ground', '2024-12-10', '2025-01-10', 'This commercial shop space offers an excellent opportunity for retail businesses. Its prime location guarantees high visibility and foot traffic in a bustling area.'),
+(1029, 9029, 'Sale', 'Builder', 'Residential', 'Apartment', '2BHK', '7 years', 'Yes', '1100 sq.ft', '1050 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '5th', '2024-12-12', '2025-01-12', 'A spacious 2BHK apartment offering a great balance of comfort and style. The semi-furnished setup makes it easy for you to personalize the space according to your needs. Located near transportation hubs for easy commuting.');
 
 -- --------------------------------------------------------
 
@@ -219,6 +228,102 @@ CREATE TABLE `property_photo` (
   `pid` int(11) NOT NULL,
   `imgpath` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `property_photo`
+--
+
+INSERT INTO `property_photo` (`phid`, `pid`, `imgpath`) VALUES
+(1, 1000, 'property_images/img1.jpg'),
+(2, 1000, 'property_images/img2.jpg'),
+(3, 1000, 'property_images/img3.jpg'),
+(4, 1001, 'property_images/img4.jpg'),
+(5, 1001, 'property_images/img5.jpg'),
+(6, 1001, 'property_images/img6.jpg'),
+(7, 1002, 'property_images/img7.jpg'),
+(8, 1002, 'property_images/img8.jpg'),
+(9, 1002, 'property_images/img9.jpg'),
+(10, 1003, 'property_images/img10.jpg'),
+(11, 1003, 'property_images/img11.jpg'),
+(12, 1003, 'property_images/img12.jpg'),
+(13, 1004, 'property_images/img13.jpg'),
+(14, 1004, 'property_images/img14.jpg'),
+(15, 1004, 'property_images/img15.jpg'),
+(16, 1005, 'property_images/img16.jpg'),
+(17, 1005, 'property_images/img17.jpg'),
+(18, 1005, 'property_images/img18.jpg'),
+(19, 1006, 'property_images/img19.jpg'),
+(20, 1006, 'property_images/img20.jpg'),
+(21, 1006, 'property_images/img21.jpg'),
+(22, 1007, 'property_images/img22.jpg'),
+(23, 1007, 'property_images/img23.jpg'),
+(24, 1007, 'property_images/img24.jpg'),
+(25, 1008, 'property_images/img25.jpg'),
+(26, 1008, 'property_images/img26.jpg'),
+(27, 1008, 'property_images/img27.jpg'),
+(28, 1009, 'property_images/img28.jpg'),
+(29, 1009, 'property_images/img29.jpg'),
+(30, 1009, 'property_images/img30.jpg'),
+(31, 1010, 'property_images/img31.jpg'),
+(32, 1010, 'property_images/img32.jpg'),
+(33, 1010, 'property_images/img33.jpg'),
+(34, 1011, 'property_images/img34.jpg'),
+(35, 1011, 'property_images/img35.jpg'),
+(36, 1011, 'property_images/img36.jpg'),
+(37, 1012, 'property_images/img37.jpg'),
+(38, 1012, 'property_images/img38.jpg'),
+(39, 1012, 'property_images/img39.jpg'),
+(40, 1013, 'property_images/img1.jpg'),
+(41, 1013, 'property_images/img2.jpg'),
+(42, 1013, 'property_images/img3.jpg'),
+(43, 1014, 'property_images/img4.jpg'),
+(44, 1014, 'property_images/img5.jpg'),
+(45, 1014, 'property_images/img6.jpg'),
+(46, 1015, 'property_images/img7.jpg'),
+(47, 1015, 'property_images/img8.jpg'),
+(48, 1015, 'property_images/img9.jpg'),
+(49, 1016, 'property_images/img10.jpeg'),
+(50, 1016, 'property_images/img11.jpeg'),
+(51, 1016, 'property_images/img12.jpeg'),
+(52, 1017, 'property_images/img13.jpg'),
+(53, 1017, 'property_images/img14.jpg'),
+(54, 1017, 'property_images/img15.jpg'),
+(55, 1018, 'property_images/img16.jpg'),
+(56, 1018, 'property_images/img17.jpg'),
+(57, 1018, 'property_images/img18.jpg'),
+(58, 1019, 'property_images/img19.jpg'),
+(59, 1019, 'property_images/img20.jpg'),
+(60, 1019, 'property_images/img21.jpg'),
+(61, 1020, 'property_images/img22.jpg'),
+(62, 1020, 'property_images/img23.jpg'),
+(63, 1020, 'property_images/img24.jpg'),
+(64, 1021, 'property_images/img25.jpg'),
+(65, 1021, 'property_images/img26.jpg'),
+(66, 1021, 'property_images/img27.jpg'),
+(67, 1022, 'property_images/img28.jpg'),
+(68, 1022, 'property_images/img29.jpg'),
+(69, 1022, 'property_images/img30.jpg'),
+(70, 1023, 'property_images/img31.jpg'),
+(71, 1023, 'property_images/img32.jpg'),
+(72, 1023, 'property_images/img33.jpg'),
+(73, 1024, 'property_images/img34.jpg'),
+(74, 1024, 'property_images/img35.jpg'),
+(75, 1024, 'property_images/img36.jpg'),
+(76, 1025, 'property_images/img37.jpg'),
+(77, 1025, 'property_images/img38.jpg'),
+(78, 1025, 'property_images/img39.jpg'),
+(79, 1026, 'property_images/img1.jpg'),
+(80, 1026, 'property_images/img2.jpg'),
+(81, 1026, 'property_images/img3.jpg'),
+(82, 1027, 'property_images/img4.jpg'),
+(83, 1027, 'property_images/img5.jpg'),
+(84, 1027, 'property_images/img6.jpg'),
+(85, 1028, 'property_images/img7.jpg'),
+(86, 1028, 'property_images/img8.jpg'),
+(87, 1028, 'property_images/img9.jpg'),
+(88, 1029, 'property_images/img10.jpeg'),
+(89, 1029, 'property_images/img11.jpeg'),
+(90, 1029, 'property_images/img12.jpeg');
 
 -- --------------------------------------------------------
 
@@ -323,7 +428,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `property`
@@ -335,7 +440,7 @@ ALTER TABLE `property`
 -- AUTO_INCREMENT for table `property_photo`
 --
 ALTER TABLE `property_photo`
-  MODIFY `phid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `phid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `user`

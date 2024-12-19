@@ -64,8 +64,6 @@
                 success: function (response){
                   //console.log(response);
                   if(response.trim() === "success"){
-                    console.log("form submited");
-                    console.log(response);
                     form.submit();
                   }else if(response.trim() === "error1"){
                     console.log("error1");
@@ -80,8 +78,3 @@
         });
     });
   </script>
-<?php
-if(isset($_SESSION['userId'])){
-    echo $_SESSION['userId'] ;
-}
-?>

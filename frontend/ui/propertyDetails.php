@@ -1,4 +1,19 @@
-<?php require_once "navbar.php" ?>
+<?php 
+   require_once "../../database/propertiesDetailsDb.php";
+   require_once "../../database/userDb.php";
+   require_once "navbar.php";
+   if(!isset($_GET['id'])){
+      ?>
+         <script>window.location="./allProperties.php"</script>
+      <?php
+   }
+   $data=getPropertyById($_GET['id']);
+   $loc=getPropertyLocation($_GET['id']);
+   $finance=getFinancialDetails($_GET['id']);
+   $user=getUserById($data['uid']);
+   $images=getPropertyImg($data['pid']);
+   $similarProperties=getSimillarProperties($data['house_type'],$data['building_type'],getPropertyPrice($data['pid']),$loc['city'],$loc['state']);
+?>
 <style>
    .property-info{
       width:33%;
@@ -10,27 +25,16 @@
       }
    }
 </style>
-
 <div class="container">
    <div class="row mt-2">
       <div class="col-md-7">
          <div id="propertyImg" class="carousel slide w-100" data-bs-ride="carousel" pause interval="2">
             <div class="carousel-inner h-100 w-100">
-               <div class="carousel-item active">
-                  <img
-                     src="https://imgs.search.brave.com/r3lzftQBeeNNKGchoyt7bQCTUmdgWJrxa772Vv6gOOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzM3LzU0LzIz/LzM2MF9GXzQzNzU0/MjM2NF9yVUtSVURs/T1EyWm1WcnNpak5G/VWZyaHhaTzdqeU9G/Zy5qcGc"
-                     class="card-img rounded" alt="ax" height="400px">
-               </div>
-               <div class="carousel-item">
-                  <img
-                     src="https://imgs.search.brave.com/BURrOYrppSL3YBxY0ZIfp-r45A0AOzmKwaPYbPCQFD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8w/MS8wNy8xNy80OC9p/bnRlcmlvci0xOTYx/MDcwXzY0MC5qcGc"
-                     class="card-img rounded" alt="ax" height="400px">
-               </div>
-               <div class="carousel-item">
-                  <img
-                     src="https://imgs.search.brave.com/MRIsvkNXzCHqfkoEJvWn5aLQ7Ozr-UPjlpw5aev76A0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzU3LzY4Lzgx/LzM2MF9GXzU3Njg4/MTc1X1BlSXNEOHpz/a013b2JiTTBOSVZN/SUlJMG5SZWdXc2Fs/LmpwZw"
-                     class="card-img rounded" alt="ax" height="400px">
-               </div>
+               <?php
+                  foreach ($images as $key => $value) {
+                     echo "<div class='carousel-item ".($key==0?"active":"")."'><img src='../../database/".$value['imgpath']."' class='card-img rounded' alt='ax' height='400px'></div>";
+                  }
+               ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#propertyImg" data-bs-slide="prev">
                <span class="carousel-control-prev-icon bg-secondary rounded-circle" aria-hidden="true"></span>
@@ -44,34 +48,41 @@
       </div>
       <div class="col-md-5">
          <div class="card-body px-2 px-md-0 pe-md-1 p-0">
-            <p class="card-title fw-semibold fs-3 m-0 p-0 text-primary-emphasis">Property
-               Name</p>
-            <p class="card-text mb-1 fs-5">2 BHK Flat for Sale in Sundarpada, Bhubaneswar</p>
-            <p class="card-text mb-1 fs-3 text-primary-emphasis m-0 fw-semibold">&#8377; 5.87 L</p>
-            <p class="card-text mb-1 fs-6">
+            <p class="card-title fw-semibold fs-3 m-0 p-0 text-primary-emphasis"><?php 
+               if($loc){
+                  echo $loc['locality'];
+              }else{
+                  echo "Unknown";
+              }
+            ?></p>
+            <p class="card-text mb-1 fs-5"><?php
+                  echo $data['house_type']." ".$data['property_type']." property for ".$data['listing_type'];
+            ?></p>
+            <p class="card-text mb-1 fs-3 text-primary-emphasis m-0 fw-semibold">&#8377; <?php echo getPropertyPrice($data['pid']) ?></p>
+            <p class="card-text mb-1 fs-6 d-flex align-items-center">
                <img src="../assets/img/bedroom.png" alt="img" width="23rem">
-               <span class="ms-1"> 3 BedRooms</span>
+               <span class="ms-2 fw-semibold"> <?php echo $data['house_type'] ?></span>
             </p>
-            <p class="card-text mb-1 fs-6">
+            <p class="card-text mb-1 fs-6 d-flex align-items-center">
                <img src="../assets/img/sofa.png" alt="img" width="23rem">
-               <span class="ms-1"> Semi-Furnished</span>
+               <span class="ms-2 fw-semibold"> <?php echo $data['furnishing_type'] ?></span>
             </p>
-            <p class="card-text mb-1 fs-6">
+            <p class="card-text mb-1 fs-6 d-flex align-items-center">
                <img src="../assets/img/area.png" alt="img" width="23rem">
-               <span class="ms-1"> 8768 Sq.ft (Build up Area)</span>
+               <span class="ms-2 fw-semibold"> <?php echo $data['area'] ?> (Build up Area)</span>
             </p>
-            <p class="card-text mb-1 fs-6">
+            <p class="card-text mb-1 fs-6 d-flex align-items-center">
                <i class="bi bi-geo-alt fs-4"></i>
-               <span class="ms-1"> Bhubaneswa, Odisha</span>
+               <span class="ms-2 fw-semibold"> <?php echo $loc['city'].", ".$loc['state']; ?></span>
             </p>
             <div class="mt-3 d-flex align-items-center justify-content-between">
-               <div class="d-flex align-items-center" style="cursor:pointer;">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="user" height="35px" width="35px" class="rounded-circle">
-                  <p class="card-text ms-2 fw-semibold fs-6">Chandrasekhar Singh</p>
+               <div class="d-flex align-items-center" style="cursor:pointer;" onclick="window.location='./venderProfile.php?uid=<?php echo $user['uid'] ?>'">
+                  <img src="../../database/<?php echo $user['profile_pic'] ?>" alt="user" height="35px" width="35px" class="rounded-circle">
+                  <p class="card-text ms-2 fw-semibold fs-5"><?php echo $user['name'] ?></p>
                </div>
                <div class="d-flex align-items-center">
                <i class="bi bi-telephone-fill fs-6"></i>
-               <p class="card-text ms-2 fw-semibold fs-6">98751678231</p>
+               <p class="card-text ms-2 fw-semibold fs-5"><?php echo $user['contact'] ?></p>
                </div>
             </div>
          </div>
@@ -89,13 +100,16 @@
                <div class="card rounded-pill p-2 m-1">Well Maintained</div>
             </div>
             <div class="px-3">
-               <p class="card-text">Experience the true essence of comfortable living at this 2 BHK semi-furnished apartment in Manjadi, Tiruvalla.</p>
+               <p class="card-text">Experience the true essence of comfortable living at this <?php echo $data['house_type']." ".$data['furnishing_type']." ".$data['building_type']." in ".$loc['city'].", ".$loc['state'].".";?></p>
                <ul>
-                  <li>Rest easy knowing that 24x7 security services are in place to ensure your safety and peace of mind.</li>
-                  <li>Situated in the renowned SAI property, this impeccable property is available for sale at a price of 42 Lac.</li>
-                  <li>The living spaces here are tastefully designed with a focus on functionality and optimum space utilization.</li>
-                  <li>The prime location of this property makes daily commuting a breeze, with easy access to all the essential amenities and services of the city.</li>
-                  <li>Situated in the renowned SAI property, this impeccable property is available for sale at a price of 42 Lac.</li>
+                  <?php
+                     $desc=explode(".", $data['description']);
+                     foreach ($desc as $key => $value) {
+                        if(strlen($value)==0)
+                           continue;
+                        echo "<li>$value.</li>";
+                     }
+                  ?>
                </ul>
             </div>
          </div>
@@ -105,91 +119,151 @@
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
                      <p class="fs-6 text-gray m-0">Listing Type</p>
-                     <p class="fs-6 fw-semibold m-0">Rent</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['listing_type'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Building Type</p>
-                     <p class="fs-6 fw-semibold m-0">Residential</p>
+                     <p class="fs-6 text-gray m-0">Listed By</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['listed_by'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
                      <p class="fs-6 text-gray m-0">Property Type</p>
-                     <p class="fs-6 fw-semibold m-0">Villa</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['property_type'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">City</p>
-                     <p class="fs-6 fw-semibold m-0">Pathanamthitta</p>
+                     <p class="fs-6 text-gray m-0">Building Type</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['building_type'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Locality</p>
-                     <p class="fs-6 fw-semibold m-0">Adoor</p>
+                     <p class="fs-6 text-gray m-0">House Type</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['house_type'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Price</p>
-                     <p class="fs-6 fw-semibold m-0">52 L</p>
+                     <p class="fs-6 text-gray m-0">Property Age</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['property_age'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Balcony</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['balcony'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
                      <p class="fs-6 text-gray m-0">Area</p>
-                     <p class="fs-6 fw-semibold m-0">8782 Sq.Ft</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['area'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Number of Rooms</p>
-                     <p class="fs-6 fw-semibold m-0">5</p>
+                     <p class="fs-6 text-gray m-0">Carpet Area</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['carpet_area'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Number of Bathroo</p>
-                     <p class="fs-6 fw-semibold m-0">2</p>
+                     <p class="fs-6 text-gray m-0">Parking</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['parking'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">View</p>
-                     <p class="fs-6 fw-semibold m-0">8782 Sq.Ft</p>
+                     <p class="fs-6 text-gray m-0">Furnishing Type</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['furnishing_type'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Balcony</p>
-                     <p class="fs-6 fw-semibold m-0">Individual</p>
+                     <p class="fs-6 text-gray m-0">Power Backup</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['power_backup'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Power Back-up</p>
-                     <p class="fs-6 fw-semibold m-0">No Back-up</p>
+                     <p class="fs-6 text-gray m-0">Lift</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['lift'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Total Floor Count</p>
-                     <p class="fs-6 fw-semibold m-0">2</p>
+                     <p class="fs-6 text-gray m-0">Floor</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['floor'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Balcony</p>
-                     <p class="fs-6 fw-semibold m-0">Individual</p>
+                     <p class="fs-6 text-gray m-0">Date Of Listing</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['date_of_listing'] ?></p>
                   </div>
                </div>
                <div class="property-info p-0">
                   <div class="border-bottom mx-3">
-                     <p class="fs-6 text-gray m-0">Facing</p>
-                     <p class="fs-6 fw-semibold m-0">East</p>
+                     <p class="fs-6 text-gray m-0">Date Of Available</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $data['date_of_available'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Rent/Price</p>
+                     <p class="fs-6 fw-semibold m-0">&#8377; <?php echo $finance['rent_amount'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Security Deposit</p>
+                     <p class="fs-6 fw-semibold m-0">&#8377; <?php echo $finance['security_deposit'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Lease Period</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $finance['lease_period'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Mentainance</p>
+                     <p class="fs-6 fw-semibold m-0">&#8377; <?php echo $finance['m_charges'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Negotiable</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $finance['negotiable'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">State</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $loc['state'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">City</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $loc['city'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Locality</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $loc['locality'] ?></p>
+                  </div>
+               </div>
+               <div class="property-info p-0">
+                  <div class="border-bottom mx-3">
+                     <p class="fs-6 text-gray m-0">Pin Code</p>
+                     <p class="fs-6 fw-semibold m-0"><?php echo $loc['pincode'] ?></p>
                   </div>
                </div>
             </div>
@@ -206,32 +280,33 @@
    </div>
 </div>
 </div>
-<?php require_once "footer.php" ?>
-<script>
-   for(let i=0;i<6;i++){
-         $("#simillarPropertyContainer").append(`
-            <div class="row mt-3 g-0 px-2 w-100 d-flex justify-content-between" onMouseOver="this.style.backgroundColor='#f5f5f5'" onMouseOut="this.style.backgroundColor=''" style="cursor:pointer;">
-               <div class="col-md-2 col-3">
-                     <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyaminmellish-186077.jpg&fm=jpg" alt="img" width="70px" class="rounded">
+<?php 
+   require_once "footer.php";
+   while($property=$similarProperties->fetch_assoc()){
+      ?>
+         <script>
+            $("#simillarPropertyContainer").append(`
+               <div class="row mt-3 g-0 px-2 w-100 d-flex justify-content-between" onMouseOver="this.style.backgroundColor='#f5f5f5'" onMouseOut="this.style.backgroundColor=''" onclick="window.location='propertyDetails.php?id=<?php echo $property['pid'] ?>'" style="cursor:pointer;">
+                  <div class="col-3">
+                        <img src="../../database/<?php echo getPropertyImg($property['pid'])[0]['imgpath'] ?>" alt="img" height="60px" width="100%" class="rounded">
+                  </div>
+                  <div class="col-md-5 col-sm-5 col-6 d-flex align-items-center flex-wrap overflow-hidden">
+                        <div class="d-flex align-items-center justify-content-center w-100 overflow-hidden" style="font-size:0.9rem">
+                           <?php echo $property['house_type']." ".$property['building_type'] ?> 
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center w-100 overflow-hidden" style="font-size:0.9rem">
+                           <?php echo getPropertyLocation($property['pid'])['city'] ?>
+                        </div>
+                  </div>
+                  <div class="col-xl-2 d-xl-flex align-items-center justify-content-center overflow-hidden d-none" style="font-size:0.9rem">
+                        <?php echo $property['area'] ?>
+                  </div>
+                  <div class="col-2 d-flex align-items-center justify-content-center overflow-hidden" style="font-size:0.9rem">
+                  &#8377; <?php echo getPropertyPrice($property['pid']) ?>
+                  </div>
                </div>
-               <div class="col-md-4 col-sm-5 col-6 d-flex align-items-center flex-wrap overflow-hidden">
-                     <div class="d-flex align-items-center w-100 overflow-hidden" style="font-size:0.8rem">
-                        4 BHK Appartment 
-                     </div>
-                     <div class="d-flex align-items-center w-100 overflow-hidden" style="font-size:0.8rem">
-                        Bhubaneswar
-                     </div>
-               </div>
-               <div class="col-xl-2 d-xl-flex align-items-center justify-content-center overflow-hidden d-none" style="font-size:0.8rem">
-                     8976 Sq.Ft
-               </div>
-               <div class="col-xl-2 d-xl-flex align-items-center justify-content-center overflow-hidden d-none" style="font-size:0.8rem">
-                     Furnished
-               </div>
-               <div class="col-2 d-flex align-items-center justify-content-center overflow-hidden" style="font-size:0.8rem">
-               &#8377; 1.07L
-               </div>
-            </div>
-         `)
-   }
-</script>
+            `)
+         </script>
+      <?php
+      }
+?>

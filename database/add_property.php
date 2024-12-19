@@ -1,27 +1,22 @@
 <?php
-header('Content-Type: application/json');
+require_once "dbconnect.php";
+session_start();
 
-Database connection (update with your credentials)
-$conn = new mysqli('localhost', 'username', 'password', 'database_name');
 
-if ($conn->connect_error) {
-    echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['submit'])) {
     // Collect data from POST
+    $userId = $_SESSION['userId'];
     $listingType = $_POST['listingType'];
     $propertyType = $_POST['propertyType'];
     $buildingType = $_POST['buildingType'];
     $listedBy = $_POST['listedBy'];
     $houseType = $_POST['houseType'];
-    $state = $_POST['state'];
-    $city = $_POST['city'];
+    $state = $_POST['stateProperty'];
+    $city = $_POST['cityProperty'];
     $locality = $_POST['locality'];
     $pinCode = $_POST['pinCode'];
-    $area = $_POST['area'];
-    $carpetArea = $_POST['carpetArea'];
+    $area = $_POST['area'] . " sq.ft";
+    $carpetArea = $_POST['carpetArea'] . " sq.ft";
     $age = $_POST['age'];
     $floorNumber = $_POST['floorNumber'];
     $furnish = $_POST['furnish'];
@@ -37,51 +32,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $availabilityDate = $_POST['availabilityDate'];
     $description = $_POST['description'];
 
-    // Basic validation (server-side)
-    if (empty($listingType) || empty($propertyType) || empty($state) || empty($city)) {
-        echo json_encode(['success' => false, 'message' => 'Required fields are missing']);
-        exit();
-    }
-
     // SQL Query to insert data
-    $stmt = $conn->prepare("INSERT INTO properties (listingType, propertyType, buildingType, listedBy, houseType, state, city, locality, pinCode, area, carpetArea, age, floorNumber, furnish, balcony, power, lift, parking, rent, securityDeposite, negotiable, leasePeriod, maintenanceCharges, availabilityDate, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO property (uid,listing_type, property_type, building_type, listed_by, house_type,property_age,balcony,area,carpet_area,parking,furnishing_type,power_backup,lift,floor,date_of_available,description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param(
-        'sssssssssssssssssssssssss',
+        'issssssssssssssss',
+        $userId,
         $listingType,
         $propertyType,
         $buildingType,
         $listedBy,
         $houseType,
-        $state,
-        $city,
-        $locality,
-        $pinCode,
+        $age,
+        $balcony,
         $area,
         $carpetArea,
-        $age,
-        $floorNumber,
+        $parking,
         $furnish,
-        $balcony,
         $power,
         $lift,
-        $parking,
-        $rent,
-        $securityDeposite,
-        $negotiable,
-        $leasePeriod,
-        $maintenanceCharges,
+        $floorNumber,
         $availabilityDate,
         $description
     );
 
     if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'message' => $conn->error]);
+        $stmt = $conn->prepare("SELECT pid FROM property WHERE uid = $userId ORDER BY pid DESC LIMIT 1");
+        
+        if(!$stmt->execute()){
+            die($conn->error);
+        }
+        $result = $stmt->get_result();
+        
+        if($result->num_rows != 0){
+            $property = $result-> fetch_assoc();
+            $pid = $property['pid'];
+            $qry1 = "INSERT INTO finance_details(pid,rent_amount,security_deposit,lease_period,m_charges,negotiable) values(?,?,?,?,?,?)";
+            $qry2 = "INSERT INTO address(pid,state,city,locality,pincode) values(?,?,?,?,?)";
+            $stmt1 = $conn->prepare($qry1);
+            $stmt2 = $conn->prepare($qry2);
+            // $hash_password = password_hash($password,PASSWORD_BCRYPT);
+            $stmt1->bind_param("isssss",$pid,$rent,$securityDeposite,$leasePeriod,$maintenanceCharges,$negotiable);
+            $stmt2->bind_param("issss",$pid, $state, $city, $locality, $pinCode);
+            $res1 = $stmt1->execute();
+            $res2 = $stmt2->execute();
+            if($res1 && $res2){
+                echo "success";
+                header("location:../frontend/ui/home.php");
+            }else{
+                echo "error1";
+            }
+            $stmt1->close();
+            $stmt2->close();
+        }
+        $stmt->close();
+       
     }
-
-    $stmt->close();
 }
-
 ?>
