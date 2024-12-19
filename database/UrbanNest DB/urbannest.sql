@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2024 at 02:54 PM
+-- Generation Time: Dec 19, 2024 at 12:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -31,7 +31,7 @@ CREATE TABLE `address` (
   `pid` int(11) NOT NULL,
   `state` varchar(50) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
-  `locality` varchar(255) DEFAULT NULL,
+  `locality` varchar(50) DEFAULT NULL,
   `pincode` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,16 +40,36 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`pid`, `state`, `city`, `locality`, `pincode`) VALUES
-(1061, 'Delhi', 'New Delhi', 'Connaught Place', '110001'),
-(1062, 'Maharashtra', 'Mumbai', 'Marine Drive', '400001'),
-(1063, 'Uttar Pradesh', 'Lucknow', 'Hazratganj', '226001'),
-(1064, 'Kolkata', 'Kolkata', 'Park Street', '700001'),
-(1065, 'Gujarat', 'Ahmedabad', 'Law Garden', '380001'),
-(1066, 'Rajasthan', 'Jaipur', 'Ashok Nagar', '302001'),
-(1067, 'Tamil Nadu', 'Chennai', 'Anna Salai', '600001'),
-(1068, 'Telangana', 'Hyderabad', 'Banjara Hills', '500001'),
-(1069, 'Punjab', 'Amritsar', 'Mall Road', '143001'),
-(1070, 'Karnataka', 'Bengaluru', 'Residency Road', '560001');
+(1000, 'Delhi', 'New Delhi', 'Connaught Place', '110001'),
+(1001, 'Maharashtra', 'Mumbai', 'Marine Drive', '400001'),
+(1002, 'Uttar Pradesh', 'Lucknow', 'Hazratganj', '226001'),
+(1003, 'Kolkata', 'Kolkata', 'Park Street', '700001'),
+(1004, 'Gujarat', 'Ahmedabad', 'Law Garden', '380001'),
+(1005, 'Rajasthan', 'Jaipur', 'Ashok Nagar', '302001'),
+(1006, 'Tamil Nadu', 'Chennai', 'Anna Salai', '600001'),
+(1007, 'Telangana', 'Hyderabad', 'Banjara Hills', '500001'),
+(1008, 'Punjab', 'Amritsar', 'Mall Road', '143001'),
+(1009, 'Karnataka', 'Bengaluru', 'Residency Road', '560001'),
+(1010, 'Haryana', 'Gurgaon', 'Cyber Hub', '122002'),
+(1011, 'West Bengal', 'Darjeeling', 'Mall Road', '734101'),
+(1012, 'Kerala', 'Kochi', 'Marine Drive', '682031'),
+(1013, 'Madhya Pradesh', 'Bhopal', 'Arera Colony', '462016'),
+(1014, 'Uttarakhand', 'Dehradun', 'Rajpur Road', '248001'),
+(1015, 'Goa', 'Panaji', 'Campal', '403001'),
+(1016, 'Jharkhand', 'Ranchi', 'Kanke Road', '834008'),
+(1017, 'Chhattisgarh', 'Raipur', 'Pandri Market', '492004'),
+(1018, 'Himachal Pradesh', 'Shimla', 'Mall Road', '171001'),
+(1019, 'Bihar', 'Patna', 'Fraser Road', '800001'),
+(1020, 'Assam', 'Guwahati', 'Paltan Bazaar', '781001'),
+(1021, 'Odisha', 'Bhubaneswar', 'Jayadev Vihar', '751013'),
+(1022, 'Manipur', 'Imphal', 'Thangal Bazar', '795001'),
+(1023, 'Meghalaya', 'Shillong', 'Police Bazaar', '793001'),
+(1024, 'Nagaland', 'Kohima', 'Main Town', '797001'),
+(1025, 'Mizoram', 'Aizawl', 'Chanmari', '796007'),
+(1026, 'Tripura', 'Agartala', 'Kaman Chowmuhani', '799001'),
+(1027, 'Sikkim', 'Gangtok', 'MG Marg', '737101'),
+(1028, 'Arunachal Pradesh', 'Itanagar', 'Bank Tinali', '791111'),
+(1029, 'Andhra Pradesh', 'Vishakhapatnam', 'RK Beach', '530017');
 
 -- --------------------------------------------------------
 
@@ -58,23 +78,22 @@ INSERT INTO `address` (`pid`, `state`, `city`, `locality`, `pincode`) VALUES
 --
 
 CREATE TABLE `contacts` (
-  `sl` int(4) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `subject` varchar(20) NOT NULL,
-  `message` varchar(50) NOT NULL
+  `sn` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contacts`
 --
 
-INSERT INTO `contacts` (`sl`, `name`, `email`, `subject`, `message`) VALUES
-(7, 'Anil', 'anil@gmail.com', 'jdsni', 'biuxdv'),
-(23, 'abc', 'abc@gmail.com', 'abc sub', 'sbc text'),
-(24, 'Anil Sahu', 'anilsahu9786@gmail.c', 'wow', 'nice'),
-(25, 'Gourav', 'g123@gmail.com', 'abc', 'abc text'),
-(26, 'abc', 'abc@gmail.com', 'abc', 'jidfvidu');
+INSERT INTO `contacts` (`sn`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'Anil', 'anil@gmail.com', 'abc subject', 'sdzbk kjdsnio jdsnjl nsdiu sdHBn'),
+(9, 'Ishita Desai', 'ishita.desai@example.com', 'Selling Property', 'I want to list my house for sale. What are the steps involved?'),
+(10, 'Naman Kapoor', 'naman.kapoor@example.com', 'Broker Charges', 'Could you clarify the broker charges for rental properties?'),
+(11, 'Tanya Mehta', 'tanya.mehta@example.com', 'Property Availability', 'Is the villa in Banjara Hills still available for rent?');
 
 -- --------------------------------------------------------
 
@@ -84,11 +103,11 @@ INSERT INTO `contacts` (`sl`, `name`, `email`, `subject`, `message`) VALUES
 
 CREATE TABLE `finance_details` (
   `pid` int(11) NOT NULL,
-  `rent_amount` decimal(10,2) DEFAULT NULL,
-  `security_deposit` decimal(10,2) DEFAULT NULL,
-  `lease_period` varchar(11) DEFAULT NULL,
-  `m_charges` decimal(10,2) DEFAULT NULL,
-  `negotiable` tinyint(1) DEFAULT NULL
+  `rent_amount` varchar(10) DEFAULT NULL,
+  `security_deposit` varchar(10) DEFAULT NULL,
+  `lease_period` varchar(10) DEFAULT NULL,
+  `m_charges` varchar(10) DEFAULT NULL,
+  `negotiable` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -96,16 +115,36 @@ CREATE TABLE `finance_details` (
 --
 
 INSERT INTO `finance_details` (`pid`, `rent_amount`, `security_deposit`, `lease_period`, `m_charges`, `negotiable`) VALUES
-(1061, 20000.00, 40000.00, '12', 500.00, 1),
-(1062, 25000.00, 50000.00, '24', 700.00, 0),
-(1063, 15000.00, 30000.00, '6', 600.00, 1),
-(1064, 22000.00, 44000.00, '12', 500.00, 1),
-(1065, 18000.00, 36000.00, '18', 450.00, 0),
-(1066, 30000.00, 60000.00, '24', 800.00, 1),
-(1067, 27000.00, 54000.00, '12', 650.00, 1),
-(1068, 35000.00, 70000.00, '36', 1000.00, 0),
-(1069, 12000.00, 24000.00, '6', 300.00, 1),
-(1070, 28000.00, 56000.00, '18', 750.00, 1);
+(1000, '20000', '40000', '12 months', '500', 'Yes'),
+(1001, '25000', '50000', '24 months', '700', 'No'),
+(1002, '15000', '30000', '6 months', '600', 'Yes'),
+(1003, '22000', '44000', '12 months', '500', 'Yes'),
+(1004, '18000', '36000', '18 months', '450', 'No'),
+(1005, '30000', '60000', '24 months', '800', 'Yes'),
+(1006, '27000', '54000', '12 months', '650', 'Yes'),
+(1007, '35000', '70000', '36 months', '1000', 'No'),
+(1008, '12000', '24000', '6 months', '300', 'Yes'),
+(1009, '28000', '56000', '18 months', '750', 'Yes'),
+(1010, '22000', '44000', '12 months', '500', 'Yes'),
+(1011, '26000', '52000', '18 months', '600', 'No'),
+(1012, '15000', '30000', '6 months', '400', 'Yes'),
+(1013, '24000', '48000', '24 months', '550', 'Yes'),
+(1014, '20000', '40000', '12 months', '500', 'No'),
+(1015, '32000', '64000', '36 months', '800', 'Yes'),
+(1016, '18000', '36000', '18 months', '450', 'Yes'),
+(1017, '27000', '54000', '12 months', '700', 'No'),
+(1018, '14000', '28000', '6 months', '350', 'Yes'),
+(1019, '30000', '60000', '24 months', '750', 'Yes'),
+(1020, '25000', '50000', '18 months', '650', 'No'),
+(1021, '20000', '40000', '12 months', '500', 'Yes'),
+(1022, '17000', '34000', '6 months', '400', 'Yes'),
+(1023, '35000', '70000', '36 months', '900', 'No'),
+(1024, '21000', '42000', '18 months', '450', 'Yes'),
+(1025, '19000', '38000', '12 months', '550', 'Yes'),
+(1026, '30000', '60000', '24 months', '800', 'No'),
+(1027, '23000', '46000', '12 months', '500', 'Yes'),
+(1028, '28000', '56000', '18 months', '650', 'Yes'),
+(1029, '31000', '62000', '36 months', '850', 'No');
 
 -- --------------------------------------------------------
 
@@ -116,20 +155,20 @@ INSERT INTO `finance_details` (`pid`, `rent_amount`, `security_deposit`, `lease_
 CREATE TABLE `property` (
   `pid` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
-  `listing_type` varchar(50) DEFAULT NULL,
-  `listed_by` varchar(50) DEFAULT NULL,
-  `property_type` varchar(50) DEFAULT NULL,
-  `house_type` varchar(50) DEFAULT NULL,
-  `property_age` int(11) DEFAULT NULL,
-  `balcony` int(11) DEFAULT NULL,
-  `area` double DEFAULT NULL,
-  `status` enum('Available','UnAvailable') DEFAULT 'Available',
-  `parking` tinyint(1) DEFAULT NULL,
-  `furnishing_type` varchar(50) DEFAULT NULL,
-  `power_backup` tinyint(1) DEFAULT NULL,
-  `lift` tinyint(1) DEFAULT NULL,
-  `floor` int(11) DEFAULT NULL,
-  `date_of_listing` date DEFAULT NULL,
+  `listing_type` varchar(50) NOT NULL,
+  `listed_by` varchar(50) NOT NULL,
+  `property_type` varchar(50) NOT NULL,
+  `house_type` varchar(50) NOT NULL,
+  `property_age` varchar(20) DEFAULT 'NA',
+  `balcony` varchar(20) NOT NULL,
+  `area` varchar(20) NOT NULL,
+  `status` varchar(20) DEFAULT 'Available',
+  `parking` varchar(20) DEFAULT 'NA',
+  `furnishing_type` varchar(50) NOT NULL,
+  `power_backup` varchar(20) DEFAULT 'No',
+  `lift` varchar(10) DEFAULT 'No',
+  `floor` varchar(10) DEFAULT 'NA',
+  `date_of_listing` date NOT NULL,
   `date_of_available` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -138,37 +177,36 @@ CREATE TABLE `property` (
 --
 
 INSERT INTO `property` (`pid`, `uid`, `listing_type`, `listed_by`, `property_type`, `house_type`, `property_age`, `balcony`, `area`, `status`, `parking`, `furnishing_type`, `power_backup`, `lift`, `floor`, `date_of_listing`, `date_of_available`) VALUES
-(1061, 9000, 'Rent', 'Owner', 'Residential', '3BHK', 2, 0, 1200, 'Available', 1, 'Unfurnished', 1, 1, 2, '2024-12-01', '2025-01-01'),
-(1062, 9000, 'Rent', 'Owner', 'Residential', '3BHK', 2, 0, 1200, 'Available', 1, 'Unfurnished', 1, 1, 2, '2024-12-01', '2025-01-01'),
-(1063, 9001, 'Sale', 'Builder', 'Residential', '2BHK', 5, 0, 800, 'Available', 1, 'Semi-furnished', 0, 1, 1, '2024-11-15', '2024-12-15'),
-(1064, 9002, 'PG', 'Agent', 'Residential', '1BHK', 0, 0, 300, 'Available', 0, 'Furnished', 0, 0, 0, '2024-11-10', '2024-12-10'),
-(1065, 9003, 'Rent', 'Owner', 'Residential', '2BHK', 3, 0, 1000, 'Available', 1, 'Fully Furnished', 1, 1, 3, '2024-11-05', '2025-01-05'),
-(1066, 9004, 'Sale', 'Owner', 'Residential', '1BHK', 10, 0, 600, 'UnAvailable', 1, 'Unfurnished', 0, 1, 1, '2024-10-25', '2024-11-25'),
-(1067, 9005, 'Rent', 'Agent', 'Residential', '3BHK', 4, 0, 1400, 'Available', 1, 'Semi-furnished', 1, 0, 4, '2024-12-02', '2025-01-02'),
-(1068, 9006, 'PG', 'Owner', 'Residential', '1BHK', 0, 0, 250, 'Available', 0, 'Furnished', 1, 0, 0, '2024-11-12', '2024-12-12'),
-(1069, 9007, 'Sale', 'Builder', 'Commercial', '2BHK', 8, 0, 1800, 'Available', 1, 'Fully Furnished', 1, 1, 5, '2024-12-01', '2025-01-01'),
-(1070, 9008, 'Rent', 'Owner', 'Residential', '2BHK', 2, 0, 950, 'Available', 0, 'Unfurnished', 0, 0, 2, '2024-11-14', '2025-01-14'),
-(1071, 9009, 'PG', 'Agent', 'Residential', '3BHK', 0, 0, 350, 'Available', 1, 'Fully Furnished', 1, 1, 0, '2024-11-20', '2024-12-20'),
-(1072, 9010, 'Rent', 'Owner', 'Residential', '3BHK', 6, 0, 1100, 'UnAvailable', 1, 'Semi-furnished', 1, 0, 3, '2024-11-25', '2025-01-25'),
-(1073, 9011, 'Sale', 'Agent', 'Residential', '1BHK', 7, 0, 650, 'Available', 0, 'Furnished', 1, 1, 1, '2024-11-18', '2024-12-18'),
-(1074, 9012, 'PG', 'Owner', 'Residential', '2BHK', 1, 0, 500, 'Available', 1, 'Unfurnished', 0, 0, 0, '2024-11-09', '2024-12-09'),
-(1075, 9013, 'Sale', 'Builder', 'Residential', '4BHK', 3, 0, 2000, 'Available', 1, 'Fully Furnished', 1, 1, 2, '2024-11-30', '2025-01-30'),
-(1076, 9014, 'Rent', 'Owner', 'Commercial', '1BHK', 5, 0, 900, 'Available', 1, 'Semi-furnished', 0, 0, 4, '2024-12-04', '2025-01-04'),
-(1077, 9015, 'Sale', 'Agent', 'Residential', '2BHK', 6, 0, 1200, 'UnAvailable', 1, 'Unfurnished', 1, 1, 3, '2024-11-22', '2024-12-22'),
-(1078, 9016, 'Rent', 'Builder', 'Residential', '5BHK', 4, 0, 2500, 'Available', 1, 'Fully Furnished', 1, 1, 6, '2024-12-01', '2025-01-01'),
-(1079, 9017, 'PG', 'Agent', 'Residential', '2BHK', 0, 0, 400, 'Available', 0, 'Furnished', 0, 0, 0, '2024-11-15', '2024-12-15'),
-(1080, 9018, 'Sale', 'Owner', 'Commercial', '1BHK', 3, 0, 850, 'Available', 1, 'Semi-furnished', 1, 1, 2, '2024-12-03', '2025-01-03'),
-(1081, 9019, 'Rent', 'Builder', 'Residential', '2BHK', 9, 0, 1000, 'UnAvailable', 0, 'Unfurnished', 0, 1, 1, '2024-11-26', '2024-12-26'),
-(1082, 9020, 'PG', 'Owner', 'Residential', '1BHK', 0, 0, 350, 'Available', 1, 'Fully Furnished', 1, 0, 0, '2024-11-20', '2024-12-20'),
-(1083, 9021, 'Rent', 'Agent', 'Residential', '3BHK', 5, 0, 1350, 'Available', 1, 'Semi-furnished', 1, 1, 4, '2024-12-05', '2025-01-05'),
-(1084, 9022, 'Sale', 'Owner', 'Residential', '2BHK', 6, 0, 1000, 'Available', 1, 'Furnished', 0, 1, 2, '2024-11-12', '2024-12-12'),
-(1085, 9023, 'PG', 'Agent', 'Residential', '1BHK', 3, 0, 500, 'Available', 1, 'Unfurnished', 1, 0, 0, '2024-11-08', '2024-12-08'),
-(1086, 9024, 'Sale', 'Builder', 'Residential', '2BHK', 7, 0, 1100, 'Available', 1, 'Semi-furnished', 0, 0, 3, '2024-12-02', '2025-01-02'),
-(1087, 9025, 'Rent', 'Owner', 'Commercial', '3BHK', 2, 0, 1500, 'Available', 1, 'Fully Furnished', 1, 1, 5, '2024-12-06', '2025-01-06'),
-(1088, 9026, 'Sale', 'Agent', 'Residential', '3BHK', 5, 0, 1600, 'Available', 1, 'Unfurnished', 0, 1, 4, '2024-11-23', '2024-12-23'),
-(1089, 9027, 'PG', 'Owner', 'Residential', '1BHK', 1, 0, 350, 'Available', 0, 'Furnished', 1, 0, 0, '2024-11-18', '2024-12-18'),
-(1090, 9028, 'Rent', 'Builder', 'Residential', '4BHK', 8, 0, 2000, 'Available', 1, 'Semi-furnished', 1, 1, 2, '2024-12-03', '2025-01-03'),
-(1091, 9029, 'Sale', 'Owner', 'Residential', '5BHK', 9, 0, 3000, 'Available', 1, 'Fully Furnished', 1, 1, 3, '2024-11-30', '2025-01-30');
+(1000, 9000, 'Rent', 'Owner', 'Residential', '3BHK', '2 years', 'Yes', '1200 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'Yes', '2nd', '2024-12-01', '2025-01-01'),
+(1001, 9001, 'Sale', 'Builder', 'Residential', '2BHK', '5 years', 'Yes', '800 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'Yes', '1st', '2024-11-15', '2024-12-15'),
+(1002, 9002, 'PG', 'Agent', 'Residential', '1BHK', 'New', 'No', '300 sq.ft', 'Available', 'Not Available', 'Furnished', 'Not Available', 'No', 'Ground', '2024-11-10', '2024-12-10'),
+(1003, 9003, 'Rent', 'Owner', 'Residential', '2BHK', '3 years', 'Yes', '1000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-11-05', '2025-01-05'),
+(1004, 9004, 'Sale', 'Owner', 'Residential', '1BHK', '10 years', 'No', '600 sq.ft', 'UnAvailable', 'Available', 'Unfurnished', 'Not Available', 'Yes', '1st', '2024-10-25', '2024-11-25'),
+(1005, 9005, 'Rent', 'Agent', 'Residential', '3BHK', '4 years', 'Yes', '1400 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'No', '4th', '2024-12-02', '2025-01-02'),
+(1006, 9006, 'PG', 'Owner', 'Residential', '1BHK', 'New', 'No', '250 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-12', '2024-12-12'),
+(1007, 9007, 'Sale', 'Builder', 'Commercial', '2BHK', '8 years', 'Yes', '1800 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '5th', '2024-12-01', '2025-01-01'),
+(1008, 9008, 'Rent', 'Owner', 'Residential', '2BHK', '2 years', 'No', '950 sq.ft', 'Available', 'Not Available', 'Unfurnished', 'Not Available', 'No', '2nd', '2024-11-14', '2025-01-14'),
+(1009, 9009, 'PG', 'Agent', 'Residential', '3BHK', 'New', 'Yes', '350 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', 'Ground', '2024-11-20', '2024-12-20'),
+(1010, 9010, 'Rent', 'Owner', 'Residential', '3BHK', '6 years', 'Yes', '1100 sq.ft', 'UnAvailable', 'Available', 'Semi-furnished', 'Available', 'No', '3rd', '2024-11-25', '2025-01-25'),
+(1011, 9011, 'Sale', 'Agent', 'Residential', '1BHK', '7 years', 'No', '650 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'Yes', '1st', '2024-11-18', '2024-12-18'),
+(1012, 9012, 'PG', 'Owner', 'Residential', '2BHK', '1 year', 'Yes', '500 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'No', 'Ground', '2024-11-09', '2024-12-09'),
+(1013, 9013, 'Sale', 'Builder', 'Residential', '4BHK', '3 years', 'Yes', '2000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '2nd', '2024-11-30', '2025-01-30'),
+(1014, 9014, 'Rent', 'Owner', 'Commercial', '1BHK', '5 years', 'No', '900 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'No', '4th', '2024-12-04', '2025-01-04'),
+(1015, 9015, 'Sale', 'Agent', 'Residential', '2BHK', '6 years', 'Yes', '1200 sq.ft', 'UnAvailable', 'Available', 'Unfurnished', 'Available', 'Yes', '3rd', '2024-11-22', '2024-12-22'),
+(1016, 9016, 'Rent', 'Builder', 'Residential', '5BHK', '4 years', 'Yes', '2500 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '6th', '2024-12-01', '2025-01-01'),
+(1017, 9017, 'PG', 'Agent', 'Residential', '2BHK', 'New', 'No', '400 sq.ft', 'Available', 'Not Available', 'Furnished', 'Not Available', 'No', 'Ground', '2024-11-15', '2024-12-15'),
+(1018, 9018, 'Sale', 'Owner', 'Commercial', '1BHK', '3 years', 'Yes', '850 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-12-03', '2025-01-03'),
+(1019, 9019, 'Rent', 'Builder', 'Residential', '2BHK', '9 years', 'No', '1000 sq.ft', 'UnAvailable', 'Not Available', 'Unfurnished', 'Not Available', 'Yes', '1st', '2024-11-26', '2024-12-26'),
+(1020, 9020, 'PG', 'Owner', 'Residential', '1BHK', 'New', 'Yes', '350 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'No', 'Ground', '2024-11-20', '2024-12-20'),
+(1021, 9021, 'Rent', 'Agent', 'Residential', '3BHK', '5 years', 'No', '1350 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '4th', '2024-12-05', '2025-01-05'),
+(1022, 9022, 'Sale', 'Owner', 'Residential', '2BHK', '6 years', 'Yes', '1000 sq.ft', 'Available', 'Available', 'Furnished', 'Not Available', 'Yes', '2nd', '2024-11-12', '2024-12-12'),
+(1023, 9023, 'PG', 'Agent', 'Residential', '1BHK', '3 years', 'No', '500 sq.ft', 'Available', 'Available', 'Unfurnished', 'Available', 'No', 'Ground', '2024-11-08', '2024-12-08'),
+(1024, 9024, 'Sale', 'Builder', 'Residential', '2BHK', '7 years', 'Yes', '1100 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Not Available', 'No', '3rd', '2024-12-02', '2025-01-02'),
+(1025, 9025, 'Rent', 'Owner', 'Commercial', '3BHK', '2 years', 'Yes', '1500 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '5th', '2024-12-06', '2025-01-06'),
+(1026, 9026, 'Sale', 'Agent', 'Residential', '3BHK', '5 years', 'No', '1600 sq.ft', 'Available', 'Available', 'Unfurnished', 'Not Available', 'Yes', '4th', '2024-11-23', '2024-12-23'),
+(1027, 9027, 'PG', 'Owner', 'Residential', '1BHK', '1 year', 'Yes', '350 sq.ft', 'Available', 'Not Available', 'Furnished', 'Available', 'No', 'Ground', '2024-11-18', '2024-12-18'),
+(1028, 9028, 'Rent', 'Builder', 'Residential', '4BHK', '8 years', 'Yes', '2000 sq.ft', 'Available', 'Available', 'Semi-furnished', 'Available', 'Yes', '2nd', '2024-12-03', '2025-01-03'),
+(1029, 9029, 'Sale', 'Owner', 'Residential', '5BHK', '9 years', 'No', '3000 sq.ft', 'Available', 'Available', 'Fully Furnished', 'Available', 'Yes', '3rd', '2024-11-30', '2025-01-30');
 
 -- --------------------------------------------------------
 
@@ -192,10 +230,10 @@ CREATE TABLE `user` (
   `uid` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `contact` bigint(20) DEFAULT NULL,
+  `contact` varchar(20) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL
+  `profile_pic` varchar(255) DEFAULT './users_profile_images/default_profile_image.jpeg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -203,36 +241,36 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`uid`, `name`, `email`, `contact`, `address`, `password`, `profile_pic`) VALUES
-(9000, 'Aarav Sharma', 'aarav.sharma@example.com', 0, '123 MG Road, Delhi', 'abc123', NULL),
-(9001, 'Priya Patel', 'priya.patel@example.com', 0, '45 Banjara Hills, Hyderabad', 'xyz789', NULL),
-(9002, 'Rohan Gupta', 'rohan.gupta@example.com', 0, '98 Residency Road, Bengaluru', 'gupta1', NULL),
-(9003, 'Sneha Verma', 'sneha.verma@example.com', 0, '67 Park Street, Kolkata', 'verma2', NULL),
-(9004, 'Kabir Singh', 'kabir.singh@example.com', 0, '11 Marine Drive, Mumbai', 'singh3', NULL),
-(9005, 'Ananya Iyer', 'ananya.iyer@example.com', 0, '22 Anna Salai, Chennai', 'iyer99', NULL),
-(9006, 'Devansh Joshi', 'devansh.joshi@example.com', 0, '34 Gota Road, Ahmedabad', 'joshi22', NULL),
-(9007, 'Ishita Desai', 'ishita.desai@example.com', 0, '88 Law Garden, Ahmedabad', 'desai33', NULL),
-(9008, 'Naman Kapoor', 'naman.kapoor@example.com', 0, '19 Juhu Beach Road, Mumbai', 'kapoor7', NULL),
-(9009, 'Tanya Mehta', 'tanya.mehta@example.com', 0, '15 Charminar Lane, Hyderabad', 'mehta12', NULL),
-(9010, 'Arjun Jain', 'arjun.jain@example.com', 0, '40 Lalbagh Road, Bengaluru', 'jain10', NULL),
-(9011, 'Sanya Malhotra', 'sanya.malhotra@example.com', 0, '25 Connaught Place, Delhi', 'sm1234', NULL),
-(9012, 'Ayaan Reddy', 'ayaan.reddy@example.com', 0, '90 Begumpet Road, Hyderabad', 'ar567', NULL),
-(9013, 'Riya Nair', 'riya.nair@example.com', 0, '77 MG Road, Kochi', 'nair99', NULL),
-(9014, 'Aditya Roy', 'aditya.roy@example.com', 0, '33 Esplanade, Kolkata', 'roy45', NULL),
-(9015, 'Kavya Aggarwal', 'kavya.aggarwal@example.com', 0, '50 Ashok Nagar, Jaipur', 'ka890', NULL),
-(9016, 'Rachit Chawla', 'rachit.chawla@example.com', 0, '18 Hazratganj, Lucknow', 'rc555', NULL),
-(9017, 'Manisha Thakur', 'manisha.thakur@example.com', 0, '89 Sector 15, Chandigarh', 'mt234', NULL),
-(9018, 'Vivek Bhardwaj', 'vivek.bhardwaj@example.com', 0, '100 Civil Lines, Kanpur', 'vb66', NULL),
-(9019, 'Nidhi Saxena', 'nidhi.saxena@example.com', 0, '56 Gomti Nagar, Lucknow', 'ns321', NULL),
-(9020, 'Ishaan Kaul', 'ishaan.kaul@example.com', 0, '33 Residency Road, Bengaluru', 'ik98', NULL),
-(9021, 'Pooja Chopra', 'pooja.chopra@example.com', 0, '22 MG Road, Delhi', 'pc12', NULL),
-(9022, 'Kunal Deshmukh', 'kunal.deshmukh@example.com', 0, '11 FC Road, Pune', 'kd78', NULL),
-(9023, 'Simran Gill', 'simran.gill@example.com', 0, '88 Mall Road, Amritsar', 'sg23', NULL),
-(9024, 'Yash Khurana', 'yash.khurana@example.com', 0, '77 GT Road, Ludhiana', 'yk88', NULL),
-(9025, 'Reena Srivastava', 'reena.srivastava@example.com', 0, '55 Ashok Nagar, Jaipur', 'rs78', NULL),
-(9026, 'Akash Dubey', 'akash.dubey@example.com', 0, '11 Lalbagh Road, Bengaluru', 'ad123', NULL),
-(9027, 'Tara Menon', 'tara.menon@example.com', 0, '90 Marine Drive, Mumbai', 'tm45', NULL),
-(9028, 'Rajiv Das', 'rajiv.das@example.com', 0, '33 Chowringhee, Kolkata', 'rd99', NULL),
-(9029, 'Meera Bansal', 'meera.bansal@example.com', 0, '45 Banjara Hills, Hyderabad', 'mb56', NULL);
+(9000, 'Aarav Sharma', 'aarav.sharma@example.com', '9876543210', '123 MG Road, Delhi', 'abc123', './users_profile_images/9000.jpeg'),
+(9001, 'Priya Patel', 'priya.patel@example.com', '9876543211', '45 Banjara Hills, Hyderabad', 'xyz789', './users_profile_images/9001.jpeg'),
+(9002, 'Rohan Gupta', 'rohan.gupta@example.com', '9876543212', '98 Residency Road, Bengaluru', 'gupta1', './users_profile_images/9002.jpeg'),
+(9003, 'Sneha Verma', 'sneha.verma@example.com', '9876543213', '67 Park Street, Kolkata', 'verma2', './users_profile_images/9003.jpeg'),
+(9004, 'Kabir Singh', 'kabir.singh@example.com', '9876543214', '11 Marine Drive, Mumbai', 'singh3', './users_profile_images/9004.jpeg'),
+(9005, 'Ananya Iyer', 'ananya.iyer@example.com', '9876543215', '22 Anna Salai, Chennai', 'iyer99', './users_profile_images/9005.jpeg'),
+(9006, 'Devansh Joshi', 'devansh.joshi@example.com', '9876543216', '34 Gota Road, Ahmedabad', 'joshi22', './users_profile_images/9006.jpeg'),
+(9007, 'Ishita Desai', 'ishita.desai@example.com', '9876543217', '88 Law Garden, Ahmedabad', 'desai33', './users_profile_images/9007.jpeg'),
+(9008, 'Naman Kapoor', 'naman.kapoor@example.com', '9876543218', '19 Juhu Beach Road, Mumbai', 'kapoor7', './users_profile_images/9008.jpeg'),
+(9009, 'Tanya Mehta', 'tanya.mehta@example.com', '9876543219', '15 Charminar Lane, Hyderabad', 'mehta12', './users_profile_images/9009.jpeg'),
+(9010, 'Arjun Jain', 'arjun.jain@example.com', '9876543220', '40 Lalbagh Road, Bengaluru', 'jain10', './users_profile_images/default_profile_image.jpeg'),
+(9011, 'Sanya Malhotra', 'sanya.malhotra@example.com', '9876543221', '25 Connaught Place, Delhi', 'sm1234', './users_profile_images/default_profile_image.jpeg'),
+(9012, 'Ayaan Reddy', 'ayaan.reddy@example.com', '9876543222', '90 Begumpet Road, Hyderabad', 'ar567', './users_profile_images/default_profile_image.jpeg'),
+(9013, 'Riya Nair', 'riya.nair@example.com', '9876543223', '77 MG Road, Kochi', 'nair99', './users_profile_images/default_profile_image.jpeg'),
+(9014, 'Aditya Roy', 'aditya.roy@example.com', '9876543224', '33 Esplanade, Kolkata', 'roy45', './users_profile_images/default_profile_image.jpeg'),
+(9015, 'Kavya Aggarwal', 'kavya.aggarwal@example.com', '9876543225', '50 Ashok Nagar, Jaipur', 'ka890', './users_profile_images/default_profile_image.jpeg'),
+(9016, 'Rachit Chawla', 'rachit.chawla@example.com', '9876543226', '18 Hazratganj, Lucknow', 'rc555', './users_profile_images/default_profile_image.jpeg'),
+(9017, 'Manisha Thakur', 'manisha.thakur@example.com', '9876543227', '89 Sector 15, Chandigarh', 'mt234', './users_profile_images/default_profile_image.jpeg'),
+(9018, 'Vivek Bhardwaj', 'vivek.bhardwaj@example.com', '9876543228', '100 Civil Lines, Kanpur', 'vb66', './users_profile_images/default_profile_image.jpeg'),
+(9019, 'Nidhi Saxena', 'nidhi.saxena@example.com', '9876543229', '56 Gomti Nagar, Lucknow', 'ns321', './users_profile_images/default_profile_image.jpeg'),
+(9020, 'Ishaan Kaul', 'ishaan.kaul@example.com', '9876543230', '33 Residency Road, Bengaluru', 'ik98', './users_profile_images/default_profile_image.jpeg'),
+(9021, 'Pooja Chopra', 'pooja.chopra@example.com', '9876543231', '22 MG Road, Delhi', 'pc12', './users_profile_images/default_profile_image.jpeg'),
+(9022, 'Kunal Deshmukh', 'kunal.deshmukh@example.com', '9876543232', '11 FC Road, Pune', 'kd78', './users_profile_images/default_profile_image.jpeg'),
+(9023, 'Simran Gill', 'simran.gill@example.com', '9876543233', '88 Mall Road, Amritsar', 'sg23', './users_profile_images/default_profile_image.jpeg'),
+(9024, 'Yash Khurana', 'yash.khurana@example.com', '9876543234', '77 GT Road, Ludhiana', 'yk88', './users_profile_images/default_profile_image.jpeg'),
+(9025, 'Reena Srivastava', 'reena.srivastava@example.com', '9876543235', '55 Ashok Nagar, Jaipur', 'rs78', './users_profile_images/default_profile_image.jpeg'),
+(9026, 'Akash Dubey', 'akash.dubey@example.com', '9876543236', '11 Lalbagh Road, Bengaluru', 'ad123', './users_profile_images/default_profile_image.jpeg'),
+(9027, 'Tara Menon', 'tara.menon@example.com', '9876543237', '90 Marine Drive, Mumbai', 'tm45', './users_profile_images/default_profile_image.jpeg'),
+(9028, 'Rajiv Das', 'rajiv.das@example.com', '9876543238', '33 Chowringhee, Kolkata', 'rd99', './users_profile_images/default_profile_image.jpeg'),
+(9029, 'Meera Bansal', 'meera.bansal@example.com', '9876543239', '45 Banjara Hills, Hyderabad', 'mb56', './users_profile_images/default_profile_image.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -248,7 +286,7 @@ ALTER TABLE `address`
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`sl`);
+  ADD PRIMARY KEY (`sn`);
 
 --
 -- Indexes for table `finance_details`
@@ -285,13 +323,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `sl` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `property`
 --
 ALTER TABLE `property`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1092;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1030;
 
 --
 -- AUTO_INCREMENT for table `property_photo`

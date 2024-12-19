@@ -1,30 +1,31 @@
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Aarav Sharma', 'aarav.sharma@example.com', 'aarav.sharma@example.com', '123 MG Road, Delhi', 'abc123', "./user's_profile_images/9000.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Priya Patel', 'priya.patel@example.com', 'priya.patel@example.com', '45 Banjara Hills, Hyderabad', 'xyz789', "./user's_profile_images/9001.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Rohan Gupta', 'rohan.gupta@example.com', 'rohan.gupta@example.com', '98 Residency Road, Bengaluru', 'gupta1', "./user's_profile_images/9002.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Sneha Verma', 'sneha.verma@example.com', 'sneha.verma@example.com', '67 Park Street, Kolkata', 'verma2', "./user's_profile_images/9003.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Kabir Singh', 'kabir.singh@example.com', 'kabir.singh@example.com', '11 Marine Drive, Mumbai', 'singh3', "./user's_profile_images/9004.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Ananya Iyer', 'ananya.iyer@example.com', 'ananya.iyer@example.com', '22 Anna Salai, Chennai', 'iyer99', "./user's_profile_images/9005.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Devansh Joshi', 'devansh.joshi@example.com', 'devansh.joshi@example.com', '34 Gota Road, Ahmedabad', 'joshi22', "./user's_profile_images/9006.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Ishita Desai', 'ishita.desai@example.com', 'ishita.desai@example.com', '88 Law Garden, Ahmedabad', 'desai33', "./user's_profile_images/9007.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Naman Kapoor', 'naman.kapoor@example.com', 'naman.kapoor@example.com', '19 Juhu Beach Road, Mumbai', 'kapoor7', "./user's_profile_images/9008.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Tanya Mehta', 'tanya.mehta@example.com', 'tanya.mehta@example.com', '15 Charminar Lane, Hyderabad', 'mehta12', "./user's_profile_images/9009.jpeg");
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Arjun Jain', 'arjun.jain@example.com', 'arjun.jain@example.com', '40 Lalbagh Road, Bengaluru', 'jain10', Null);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Sanya Malhotra', 'sanya.malhotra@example.com', 'sanya.malhotra@example.com', '25 Connaught Place, Delhi', 'sm1234', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Ayaan Reddy', 'ayaan.reddy@example.com', 'ayaan.reddy@example.com', '90 Begumpet Road, Hyderabad', 'ar567', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Riya Nair', 'riya.nair@example.com', 'riya.nair@example.com', '77 MG Road, Kochi', 'nair99', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Aditya Roy', 'aditya.roy@example.com', 'aditya.roy@example.com', '33 Esplanade, Kolkata', 'roy45', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Kavya Aggarwal', 'kavya.aggarwal@example.com', 'kavya.aggarwal@example.com', '50 Ashok Nagar, Jaipur', 'ka890', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Rachit Chawla', 'rachit.chawla@example.com', 'rachit.chawla@example.com', '18 Hazratganj, Lucknow', 'rc555', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Manisha Thakur', 'manisha.thakur@example.com', 'manisha.thakur@example.com', '89 Sector 15, Chandigarh', 'mt234', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Vivek Bhardwaj', 'vivek.bhardwaj@example.com', 'vivek.bhardwaj@example.com', '100 Civil Lines, Kanpur', 'vb66', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Nidhi Saxena', 'nidhi.saxena@example.com', 'nidhi.saxena@example.com', '56 Gomti Nagar, Lucknow', 'ns321', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Ishaan Kaul', 'ishaan.kaul@example.com', 'ishaan.kaul@example.com', '33 Residency Road, Bengaluru', 'ik98', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Pooja Chopra', 'pooja.chopra@example.com', 'pooja.chopra@example.com', '22 MG Road, Delhi', 'pc12', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Kunal Deshmukh', 'kunal.deshmukh@example.com', 'kunal.deshmukh@example.com', '11 FC Road, Pune', 'kd78', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Simran Gill', 'simran.gill@example.com', 'simran.gill@example.com', '88 Mall Road, Amritsar', 'sg23', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Yash Khurana', 'yash.khurana@example.com', 'yash.khurana@example.com', '77 GT Road, Ludhiana', 'yk88', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Reena Srivastava', 'reena.srivastava@example.com', 'reena.srivastava@example.com', '55 Ashok Nagar, Jaipur', 'rs78', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Akash Dubey', 'akash.dubey@example.com', 'akash.dubey@example.com', '11 Lalbagh Road, Bengaluru', 'ad123', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Tara Menon', 'tara.menon@example.com', 'tara.menon@example.com', '90 Marine Drive, Mumbai', 'tm45', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Rajiv Das', 'rajiv.das@example.com', 'rajiv.das@example.com', '33 Chowringhee, Kolkata', 'rd99', NULL);
-INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES ('Meera Bansal', 'meera.bansal@example.com', 'meera.bansal@example.com', '45 Banjara Hills, Hyderabad', 'mb56', NULL);
+INSERT INTO user (name, email, contact, address, password, profile_pic) VALUES 
+('Aarav Sharma', 'aarav.sharma@example.com', '9876543210', '123 MG Road, Delhi', 'abc123', './users_profile_images/9000.jpeg'),
+('Priya Patel', 'priya.patel@example.com', '9876543211', '45 Banjara Hills, Hyderabad', 'xyz789', './users_profile_images/9001.jpeg'),
+('Rohan Gupta', 'rohan.gupta@example.com', '9876543212', '98 Residency Road, Bengaluru', 'gupta1', './users_profile_images/9002.jpeg'),
+('Sneha Verma', 'sneha.verma@example.com', '9876543213', '67 Park Street, Kolkata', 'verma2', './users_profile_images/9003.jpeg'),
+('Kabir Singh', 'kabir.singh@example.com', '9876543214', '11 Marine Drive, Mumbai', 'singh3', './users_profile_images/9004.jpeg'),
+('Ananya Iyer', 'ananya.iyer@example.com', '9876543215', '22 Anna Salai, Chennai', 'iyer99', './users_profile_images/9005.jpeg'),
+('Devansh Joshi', 'devansh.joshi@example.com', '9876543216', '34 Gota Road, Ahmedabad', 'joshi22', './users_profile_images/9006.jpeg'),
+('Ishita Desai', 'ishita.desai@example.com', '9876543217', '88 Law Garden, Ahmedabad', 'desai33', './users_profile_images/9007.jpeg'),
+('Naman Kapoor', 'naman.kapoor@example.com', '9876543218', '19 Juhu Beach Road, Mumbai', 'kapoor7', './users_profile_images/9008.jpeg'),
+('Tanya Mehta', 'tanya.mehta@example.com', '9876543219', '15 Charminar Lane, Hyderabad', 'mehta12', './users_profile_images/9009.jpeg'),
+('Arjun Jain', 'arjun.jain@example.com', '9876543220', '40 Lalbagh Road, Bengaluru', 'jain10', "./users_profile_images/default_profile_image.jpeg"),
+('Sanya Malhotra', 'sanya.malhotra@example.com', '9876543221', '25 Connaught Place, Delhi', 'sm1234', "./users_profile_images/default_profile_image.jpeg"),
+('Ayaan Reddy', 'ayaan.reddy@example.com', '9876543222', '90 Begumpet Road, Hyderabad', 'ar567', "./users_profile_images/default_profile_image.jpeg"),
+('Riya Nair', 'riya.nair@example.com', '9876543223', '77 MG Road, Kochi', 'nair99', "./users_profile_images/default_profile_image.jpeg"),
+('Aditya Roy', 'aditya.roy@example.com', '9876543224', '33 Esplanade, Kolkata', 'roy45', "./users_profile_images/default_profile_image.jpeg"),
+('Kavya Aggarwal', 'kavya.aggarwal@example.com', '9876543225', '50 Ashok Nagar, Jaipur', 'ka890', "./users_profile_images/default_profile_image.jpeg"),
+('Rachit Chawla', 'rachit.chawla@example.com', '9876543226', '18 Hazratganj, Lucknow', 'rc555', "./users_profile_images/default_profile_image.jpeg"),
+('Manisha Thakur', 'manisha.thakur@example.com', '9876543227', '89 Sector 15, Chandigarh', 'mt234', "./users_profile_images/default_profile_image.jpeg"),
+('Vivek Bhardwaj', 'vivek.bhardwaj@example.com', '9876543228', '100 Civil Lines, Kanpur', 'vb66', "./users_profile_images/default_profile_image.jpeg"),
+('Nidhi Saxena', 'nidhi.saxena@example.com', '9876543229', '56 Gomti Nagar, Lucknow', 'ns321', "./users_profile_images/default_profile_image.jpeg"),
+('Ishaan Kaul', 'ishaan.kaul@example.com', '9876543230', '33 Residency Road, Bengaluru', 'ik98', "./users_profile_images/default_profile_image.jpeg"),
+('Pooja Chopra', 'pooja.chopra@example.com', '9876543231', '22 MG Road, Delhi', 'pc12', "./users_profile_images/default_profile_image.jpeg"),
+('Kunal Deshmukh', 'kunal.deshmukh@example.com', '9876543232', '11 FC Road, Pune', 'kd78', "./users_profile_images/default_profile_image.jpeg"),
+('Simran Gill', 'simran.gill@example.com', '9876543233', '88 Mall Road, Amritsar', 'sg23', "./users_profile_images/default_profile_image.jpeg"),
+('Yash Khurana', 'yash.khurana@example.com', '9876543234', '77 GT Road, Ludhiana', 'yk88', "./users_profile_images/default_profile_image.jpeg"),
+('Reena Srivastava', 'reena.srivastava@example.com', '9876543235', '55 Ashok Nagar, Jaipur', 'rs78', "./users_profile_images/default_profile_image.jpeg"),
+('Akash Dubey', 'akash.dubey@example.com', '9876543236', '11 Lalbagh Road, Bengaluru', 'ad123', "./users_profile_images/default_profile_image.jpeg"),
+('Tara Menon', 'tara.menon@example.com', '9876543237', '90 Marine Drive, Mumbai', 'tm45', "./users_profile_images/default_profile_image.jpeg"),
+('Rajiv Das', 'rajiv.das@example.com', '9876543238', '33 Chowringhee, Kolkata', 'rd99', "./users_profile_images/default_profile_image.jpeg"),
+('Meera Bansal', 'meera.bansal@example.com', '9876543239', '45 Banjara Hills, Hyderabad', 'mb56', "./users_profile_images/default_profile_image.jpeg");
