@@ -73,10 +73,9 @@
 
         form.addEventListener("submit", function (e) {
             console.log("form submited");
-            e.preventDefault(); // Prevent form submission by default
+            e.preventDefault();
             let isValid = true;
 
-            // Clear previous error messages
             document.getElementById("errorName").innerText = "";
             document.getElementById("errorEmail").innerText = "";
             document.getElementById("errorMobile").innerText = "";
