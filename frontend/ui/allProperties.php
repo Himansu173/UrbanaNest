@@ -1,4 +1,7 @@
-<?php require_once "navbar.php" ?>
+<?php 
+require_once "navbar.php";
+require_once "../../database/propertiesDetailsDb.php";
+?>
 <div class="container-fluid my-2 d-flex justify-content-center">
     <div class="row my-1 g-3" style="max-width:1600px">
         <div class="row p-0 m-0">
@@ -43,6 +46,10 @@
             </div>
             <div class="d-flex flex-wrap justify-content-around" id="propertyCardContainer">
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -65,9 +72,9 @@
     }
 </script>
 <?php 
-    require_once "../../database/propertiesDetailsDb.php";
     require_once "footer.php";
-    $data=getAllProperties();
+    $page=isset($_GET['page'])?$_GET['page']:1;
+    $data=getPropertyPerPage($page);
     while($property=$data->fetch_assoc()){
         $loc=getPropertyLocation($property['pid']);
         ?>
@@ -130,4 +137,23 @@
         </script>
         <?php
     }
+    $pagination_page=getNumberOfPage();
+    echo $pagination_page
+    ?>
+    <script>
+        let pagination=`<li class="page-item">
+                    <a class="page-link" href="./allProperties.php?page=<?php $_GET['page']==1?print($_GET['page']):print($_GET['page']-1) ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    </li>`;
+        for ($i=0; $i < <?php echo $pagination_page ?>; $i++) { 
+            pagination+=`<li class="page-item"><a class="page-link" href="./allProperties.php?page=${$i+1}">${$i+1}</a></li>`;
+        }
+        pagination+=`<li class="page-item">
+                    <a class="page-link" href="./allProperties.php?page=<?php $_GET['page']==$pagination_page?print($pagination_page):print($_GET['page']+1) ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                    </li>`;
+        $(".pagination").html(pagination);
+    </script>
 ?>

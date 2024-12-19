@@ -41,4 +41,29 @@
         }
         return "NA";
     }
+    $results_per_page = 12;
+    function getNumberOfPage(){
+        global $conn;
+        global $results_per_page;
+        $qry="SELECT * FROM property";
+        $stm=$conn->prepare($qry);
+        $stm->execute();
+        $res=$stm->get_result();
+        return  ceil ($res->num_rows / $results_per_page);
+    }
+    function getPropertyPerPage($page){
+        global $results_per_page;
+        $page_first_result = ($page-1) * $results_per_page;
+        global $conn;
+        $qry="SELECT * FROM property LIMIT " . $page_first_result . ',' . $results_per_page;
+        $stm=$conn->prepare($qry);
+        $res=$stm->execute();
+        if($res){
+            $res=$stm->get_result();
+            if($res->num_rows>0){
+                return $res;
+            }
+        }
+        return false;
+    }
 ?>
