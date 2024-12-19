@@ -76,7 +76,7 @@ $totalContacts = getTotalContats();
                                     <td><?= $row['subject'] ?></td>
                                     <td><?= $row['message'] ?></td>
                                     <td class="text-center">
-                                        <a href="../../contactDelete.php?id=<?= $row['sn'] ?>" class="cursor-pointer" onclick="return confirm('Are you sure you want to delete this record?')">
+                                        <a href="../../database/contactDelete.php?id=<?= $row['sn'] ?>" class="cursor-pointer" onclick="return confirm('Are you sure you want to delete this record?')">
                                             <i class="bi bi-trash-fill text-danger text-center"></i>
                                         </a>
                                     </td>

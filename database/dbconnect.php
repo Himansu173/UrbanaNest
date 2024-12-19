@@ -19,10 +19,10 @@
             uid INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
-            contact BIGINT,
+            contact VARCHAR(20),
             address TEXT,
             password VARCHAR(255) NOT NULL,
-            profile_pic VARCHAR(255)
+            profile_pic VARCHAR(255) DEFAULT "./users_profile_images/default_profile_image.jpeg"
         )';
         $stm=$conn->prepare($user);
         $response=$stm->execute();
@@ -44,12 +44,12 @@
             property_type VARCHAR(50) NOT NULL, 
             house_type VARCHAR(50) NOT NULL,
             property_age VARCHAR(20) DEFAULT "NA", 
-            balcony VARCHAR(5) NOT NULL, 
+            balcony VARCHAR(20) NOT NULL, 
             area VARCHAR(20) NOT NULL, 
             status VARCHAR(20) DEFAULT "Available", 
-            parking VARCHAR(10) DEFAULT "NA",
+            parking VARCHAR(20) DEFAULT "NA",
             furnishing_type VARCHAR(50) NOT NULL,
-            power_backup VARCHAR(5) DEFAULT "No",
+            power_backup VARCHAR(20) DEFAULT "No",
             lift VARCHAR(10) DEFAULT "No",
             floor VARCHAR(10) DEFAULT "NA",
             date_of_listing DATE NOT NULL, 
