@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UrbanNest</title>
     <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+    <link href="../assets/img/favicon.png" rel="icon" />
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="height:100vh;">

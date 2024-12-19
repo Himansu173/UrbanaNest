@@ -66,4 +66,18 @@
         }
         return false;
     }
+    function getPropertyImg($pid){
+        global $conn;
+        $qry="SELECT imgpath FROM property_photo WHERE pid=?";
+        $stm=$conn->prepare($qry);
+        $stm->bind_param("i",$pid);
+        $res=$stm->execute();
+        if($res){
+            $res=$stm->get_result();
+            if($res->num_rows>0){
+                return $res->fetch_all(MYSQLI_ASSOC);
+            }
+        }
+        return false;
+    }
 ?>
