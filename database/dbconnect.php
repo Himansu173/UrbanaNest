@@ -42,10 +42,12 @@
             listing_type VARCHAR(50) NOT NULL,
             listed_by VARCHAR(50) NOT NULL, 
             property_type VARCHAR(50) NOT NULL, 
+            building_type VARCHAR(30) NOT NULL,
             house_type VARCHAR(50) NOT NULL,
             property_age VARCHAR(20) DEFAULT "NA", 
             balcony VARCHAR(20) NOT NULL, 
             area VARCHAR(20) NOT NULL, 
+            carpet_area VARCHAR(20) NOT NULL, 
             status VARCHAR(20) DEFAULT "Available", 
             parking VARCHAR(20) DEFAULT "NA",
             furnishing_type VARCHAR(50) NOT NULL,
@@ -53,7 +55,8 @@
             lift VARCHAR(10) DEFAULT "No",
             floor VARCHAR(10) DEFAULT "NA",
             date_of_listing DATE NOT NULL, 
-            date_of_available DATE,
+            date_of_available DATE NOT NULL,
+            description TEXT DEFAULT "No Description Available.",
             FOREIGN KEY (uid) REFERENCES user(uid) ON DELETE CASCADE 
         )';
         
