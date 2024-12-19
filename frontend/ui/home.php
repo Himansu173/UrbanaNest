@@ -91,7 +91,7 @@ require_once "navbar.php"
             </article>
           </div>
           <!-- Second Card -->
-          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="200">
             <article>
               <div class="post-img">
                 <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
@@ -109,7 +109,7 @@ require_once "navbar.php"
             </article>
           </div>
           <!-- Third Card -->
-          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="300">
             <article>
               <div class="post-img">
                 <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
@@ -129,7 +129,7 @@ require_once "navbar.php"
       </div>
       <div class="row mx-auto my-3">
           <!-- First Card -->
-          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="400">
             <article>
               <div class="post-img">
                 <img src="../assets/img/blog/blog-1.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
@@ -147,7 +147,7 @@ require_once "navbar.php"
             </article>
           </div>
           <!-- Second Card -->
-          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="500">
             <article>
               <div class="post-img">
                 <img src="../assets/img/blog/blog-2.jpg" alt="" class="img-fluid w-100" style="height: 300px">
@@ -165,7 +165,7 @@ require_once "navbar.php"
             </article>
           </div>
           <!-- Third Card -->
-          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 p-3" data-aos="fade-up" data-aos-delay="600">
             <article>
               <div class="post-img">
                 <img src="../assets/img/blog/blog-3.jpeg" alt="" class="img-fluid w-100" style="height: 300px">
@@ -213,7 +213,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone"></i>
                 <h3>Call Us</h3>
                 <p>+91 12345 06789</p>
@@ -222,7 +222,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope"></i>
                 <h3>Email Us</h3>
                 <p>info@urbannest.com</p>
@@ -231,7 +231,7 @@ require_once "navbar.php"
             </div><!-- End Info Item -->
 
             <div class="col-md-6">
-              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
                 <i class="bi bi-clock"></i>
                 <h3>Open Hours</h3>
                 <p>Monday - Friday</p>

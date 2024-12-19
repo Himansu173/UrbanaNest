@@ -3,6 +3,8 @@ require_once "navbar.php";
 require_once "../../database/dbConnect.php";
 require_once "../../database/dbFunctions.php";
 
+$userData = getUsers();
+$propertyData = getProperties();
 $contactData = getContats();
 
 $totalUser = getTotalUser();

@@ -1,11 +1,36 @@
 <?php
 require_once "../../database/dbConnect.php";
 
-global $conn;
 
 function getContats() {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM contacts");
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
+}
+
+function getUsers() {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM user");
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
+}
+
+function getProperties() {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM property");
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
