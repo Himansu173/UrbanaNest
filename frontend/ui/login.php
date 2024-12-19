@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
   <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content">

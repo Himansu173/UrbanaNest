@@ -271,3 +271,60 @@ if(isset($_POST['submit'])){
     print_r ($_POST);
 }
 ?>
+
+<!-- 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Perform front-end validation
+        if (!validateForm()) {
+            alert("Please fill out all required fields correctly.");
+            return;
+        }
+
+        // Collect form data
+        const formData = new FormData(form);
+
+        // Send AJAX request
+        fetch("propertyRegister.php", {
+            method: "POST",
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Property listed successfully!");
+                    form.reset(); // Reset the form on success
+                } else {
+                    alert(`Error: ${data.message}`);
+                }
+            })
+            .catch(error => {
+                console.error("Error submitting form:", error);
+                alert("An error occurred. Please try again.");
+            });
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        // Example: Validate required text fields
+        document.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add("is-invalid");
+                isValid = false;
+            } else {
+                input.classList.remove("is-invalid");
+            }
+        });
+
+        return isValid;
+    }
+});
+</script> -->
+
+

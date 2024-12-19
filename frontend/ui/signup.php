@@ -46,7 +46,7 @@
             <div class="d-flex justify-content-between">
                 <div class="mb-2">
                     <label for="password">Already have an account?</label>
-                    <a type="#" class="" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <a type="#" class="text-decoration-underline" style="cursor:pointer;"data-bs-toggle="modal" data-bs-target="#loginModal">
                         Login
                     </a>
                 </div>
