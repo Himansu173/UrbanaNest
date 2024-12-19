@@ -39,23 +39,24 @@
         $property='CREATE TABLE property (
             pid INT AUTO_INCREMENT PRIMARY KEY,
             uid INT NOT NULL,
-            listing_type VARCHAR(50),
-            listed_by VARCHAR(50),
-            property_type VARCHAR(50),
-            house_type VARCHAR(50),
-            property_age VARCHAR DEFAULT "NA",
-            balcony VARCHAR NOT NULL,
-            area VARCHAR(20) NOT NULL,
-            status VARCHAR("Available", "UnAvailable") DEFAULT "Available",
-            parking VARCHAR(10),
-            furnishing_type VARCHAR(50),
-            power_backup VARCHAR(5),
-            lift VARCHAR(10),
-            floor VARCHAR(10),
-            date_of_listing DATE,
+            listing_type VARCHAR(50) NOT NULL,
+            listed_by VARCHAR(50) NOT NULL, 
+            property_type VARCHAR(50) NOT NULL, 
+            house_type VARCHAR(50) NOT NULL,
+            property_age VARCHAR(20) DEFAULT "NA", 
+            balcony VARCHAR(5) NOT NULL, 
+            area VARCHAR(20) NOT NULL, 
+            status VARCHAR(20) DEFAULT "Available", 
+            parking VARCHAR(10) DEFAULT "NA",
+            furnishing_type VARCHAR(50) NOT NULL,
+            power_backup VARCHAR(5) DEFAULT "No",
+            lift VARCHAR(10) DEFAULT "No",
+            floor VARCHAR(10) DEFAULT "NA",
+            date_of_listing DATE NOT NULL, 
             date_of_available DATE,
-            FOREIGN KEY (uid) REFERENCES user(uid) ON DELETE CASCADE
+            FOREIGN KEY (uid) REFERENCES user(uid) ON DELETE CASCADE 
         )';
+        
         $stm=$conn->prepare($property);
         $response=$stm->execute();
         if(!$response){
@@ -111,10 +112,10 @@
         
         $contacts='CREATE TABLE contacts (
             sn INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(20) NOT NULL,
-            email VARCHAR(20) NOT NULL,
-            subject VARCHAR(20) NOT NULL,
-            message VARCHAR(50) NOT NULL,
+            name VARCHAR(30) NOT NULL,
+            email VARCHAR(40) NOT NULL,
+            subject VARCHAR(50) NOT NULL,
+            message VARCHAR(255) NOT NULL
         )';
         $stm=$conn->prepare($contacts);
         $response=$stm->execute();
