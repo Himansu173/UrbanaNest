@@ -100,10 +100,7 @@
               aria-labelledby="navbarDropdownMenuAvatar"
             >
               <li>
-                <a class="dropdown-item" href="#">My profile</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="./ownerProfile.php">My profile</a>
               </li>
               <li>
                 <a class="dropdown-item" href="./logout.php">Logout</a>
