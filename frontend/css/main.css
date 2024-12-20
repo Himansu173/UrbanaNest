@@ -406,14 +406,6 @@ section,
   overflow: clip;
 }
 
-@media (max-width: 1199px) {
-
-  section,
-  .section {
-    scroll-margin-top: 64px;
-  }
-}
-
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
