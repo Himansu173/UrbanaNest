@@ -3,6 +3,9 @@
   session_start();
   if(isset($_SESSION['userId'])){
     $isLogged = true;
+    require_once "../../database/userDb.php";
+    $user = getUserById($_SESSION['userId']);
+    // print_r($user);
   }
 ?>
 <!DOCTYPE html>
@@ -85,7 +88,7 @@
               aria-expanded="false"
             >
               <img
-                src="../assets/img/profile.png"
+                src="../../database/' .($user['profile_pic']) . '"
                 class="rounded-circle"
                 height="40"
                 alt="Black and White Portrait of a Man"
