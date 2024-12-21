@@ -84,16 +84,17 @@ require_once "navbar.php"
                   <img src="../assets/img/blog/blog-1.jpeg" alt="<?php echo $row['house_type']; ?>" class="img-fluid w-100">
                 </div>
                 <div class="card-body">
-                  <h2 class="title fs-5"><?php echo $row['house_type']; ?></h2>
-                  <p class="price">
+                  <h2 class="title fs-5" style="margin-bottom: 5px;"><?php echo $row['house_type']; ?></h2>
+                  <p class="price" style="margin-bottom: 5px;">
                     <span class="text-success fs-5">₹<?php echo number_format($row['rent_amount'], 0); ?></span>
+                    <span>Rent/month</span>
                     <span class="text-muted"> (<?php echo $row['carpet_area']; ?>)</span>
                   </p>
-                  <p class="location">
+                  <p class="location" style="margin-bottom: 5px;">
                     <strong>City:</strong> <?php echo $row['city']; ?><br>
                     <strong>State:</strong> <?php echo $row['state']; ?>
                   </p>
-                  <a href="./propertyDetails.php" class="btn custom-btn">View Details</a>
+                  <a href="./propertyDetails.php" class="btn custom-btn mt-2">View Details</a>
                 </div>
               </article>
             </div>

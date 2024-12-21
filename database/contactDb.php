@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 function getContats() {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM contacts");
+    $stmt = $conn->prepare("SELECT * FROM contacts  ORDER BY sn DESC;");
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
