@@ -73,7 +73,7 @@ require_once "navbar.php"
     <div class="container">
       <div class="row mx-auto">
         <?php
-          require_once "../../database/dbFunctions.php";
+          require_once "../../database/recentPost.php";
           $property = getRecentPost();
         ?>
         <?php if ($property): ?>
